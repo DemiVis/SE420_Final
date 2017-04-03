@@ -3,3 +3,7 @@ CreateTruth/SobelOut.*
 CreateTruth/PyrdwnOut.*
 CreateTruth/PyrupOut.*
 CreateTruth/HoughOut.*
+*.o
+Hough_Jetson/hough
+Sobel_Jetson/sobel_edge
+Pyramidal_Jetson/pyramid
