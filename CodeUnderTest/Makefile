@@ -34,7 +34,7 @@ test:
 	
 clean:
 	rm -f *.o *~
-	rm -f hough hough.ppm houghOut.pgm sobelOut.pgm 
-	rm -f pyramid pyrdown.ppm pyrup.ppm pyrdiff.ppm
-	rm -f sobel sobel_out.ppm
+	rm -f hough hough.pgm houghOut.pgm sobelOut.pgm 
+	rm -f pyramid pyrdown.pgm pyrup.pgm
+	rm -f sobel sobel_out.pgm
 	rm -f test_benchmarks

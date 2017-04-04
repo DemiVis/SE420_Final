@@ -345,13 +345,6 @@ void CPU_pyrup(unsigned char* imageIn, unsigned char* imageOut, int width, int h
   free(laplaceimage);
 }
 
-void CPU_pyrdiff(unsigned char* image1, unsigned char* image2, unsigned char* diff_image, int width, int height)
-{
-	int i=0,j=0;
-	for(i=0; i<height; i++)
-		for(j=0; j<width; j++)
-			diff_image[i*width + j] = abs(image1[i*width + j] - image2[i*width + j]);
-}
 
 #endif // _PYRAMID_KERNEL_H_
 

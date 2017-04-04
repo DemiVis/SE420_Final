@@ -62,7 +62,6 @@ __global__ void PyrDown(unsigned char *g_DataIn, unsigned char *g_DataOut, int w
 __global__ void PyrUp(unsigned char* g_DataIn, unsigned char* g_DataOut, int width, int height);
 extern void CPU_pyrdown(unsigned char* imageIn, unsigned char* imageOut, int width, int height);
 extern void CPU_pyrup(unsigned char* imageIn, unsigned char* imageOut, int width, int height);
-extern void CPU_pyrdiff(unsigned char* image1, unsigned char* image2, unsigned char* diff_image, int width, int height);
 
 /* Device Memory */
 unsigned char *d_In, *d_Down, *d_Up, *d_Diff;
@@ -520,14 +519,9 @@ int main(int argc, char* argv[])
 	// Wait for thread to exit
 	pthread_join(rt_thread, NULL);
 	
-	// Calculate difference
-	pyrdiff_image   = (unsigned char *)malloc(img_width * img_height);
-	CPU_pyrdiff(input_image, pyrup_image, pyrdiff_image, img_width, img_height);
-	
 	// Write results 
-	dump_ppm_data("pyrdown.ppm", img_width/2, img_height/2, img_chan, pyrdown_image);
-	dump_ppm_data("pyrup.ppm", img_width, img_height, img_chan, pyrup_image);
-	dump_ppm_data("pyrdiff.ppm", img_width, img_height, img_chan, pyrdiff_image);
+	dump_ppm_data("pyrdown.pgm", img_width/2, img_height/2, img_chan, pyrdown_image);
+	dump_ppm_data("pyrup.pgm", img_width, img_height, img_chan, pyrup_image);
 	
 	// Free memory
 	free(input_image);

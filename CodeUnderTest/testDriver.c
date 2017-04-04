@@ -97,7 +97,7 @@ double timespec2double( struct timespec time_in)
 // Clear Out transform results images
 void clear_outputs(void)
 {
-	system("rm -f "SOBEL_OUT PYRUP_OUT PYRDWN_OUT "pyrdiff.ppm " HOUGH_OUT);
+	system("rm -f "SOBEL_OUT PYRUP_OUT PYRDWN_OUT HOUGH_OUT);
 }
 		   
 // Stubbed out functions
