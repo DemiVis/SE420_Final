@@ -42,6 +42,7 @@
 // driver is the only test driver for this project. As such regression testing should include
 // running this test and this test only.
 
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -56,17 +57,19 @@
 #define MIN_IMG_PX				(100e3)		// R009
 #define MAX_IMG_PX				(826e4)		// R009
 
+#define INPUT_IMG_FOLDER		"../Test_images/"
+
 #define TOO_LARGE_IMG			/*Some huge ppm file*/
 #define TOO_SMALL_IMG			/*Some tiny ppm file*/
 
-#define MED_INPUT_IMG			"../Test_images/mount_xl.pgm"
-#define MED_INPUT_IMG_HT		(120)
-#define MED_INPUT_IMG_WT		(160)
+#define MED_INPUT_IMG			"mount_m.pgm"
+#define MED_INPUT_IMG_HT		(480)
+#define MED_INPUT_IMG_WT		(640)
 #define MED_INPUT_IMG_SZ		(MED_INPUT_IMG_HT * MED_INPUT_IMG_WT)
-#define MED_INPUT_IMG_SOBEL		"beach_160x120_sobel.pgm"
-#define MED_INPUT_IMG_PYRUP		"beach_160x120_pyrup.pgm"
-#define MED_INPUT_IMG_PYRDWN	"beach_160x120_pyrdwn.pgm"
-#define MED_INPUT_IMG_HOUGH		"beach_160x120_hough.pgm"
+#define MED_INPUT_IMG_SOBEL		"sobel_expected.pgm"
+#define MED_INPUT_IMG_PYRUP		"pyrup_expected.pgm"
+#define MED_INPUT_IMG_PYRDWN	"pyrdwn_expected.pgm"
+#define MED_INPUT_IMG_HOUGH		"hough_expected.pgm"
 
 #define MAX_PPM_HR_LEN			( 50)
 
@@ -84,6 +87,7 @@
 
 #define NUM_TESTS				10
 
+#define DEBUG
 //***************************************************************//
 // Convert timespec to double containing time in ms
 //***************************************************************//
@@ -100,16 +104,64 @@ void clear_outputs(void)
 	system("rm -f "SOBEL_OUT PYRUP_OUT PYRDWN_OUT HOUGH_OUT);
 }
 		   
-// Stubbed out functions
-bool compare_ppm(const char * img1_filename, const char * img2_filename)
+// compare ppm pixel by pixel and create diff image
+// Only works for medium image sized pgm images
+bool compare_ppm(const char * img1_filename, const char * img2_filename, const char *diff_filename)
 {
-	// Stub
-	return true;
+	unsigned char img1[MED_INPUT_IMG_SZ], img2[MED_INPUT_IMG_SZ], diff[MED_INPUT_IMG_SZ];
+	char temp[512];
+	int tempInt;
+	unsigned tempUnsigned;
+	bool rv = true;
+	
+	// Read input files
+	if( readppm(img1, &tempInt, temp, &tempInt, &tempUnsigned, &tempUnsigned, &tempUnsigned,
+             (char *)img1_filename) != true)
+	{
+#ifdef DEBUG
+		printf("error reading ppm 1 for comparison\n");
+#endif
+		return false;
+	}
+	if( readppm(img2, &tempInt, temp, &tempInt, &tempUnsigned, &tempUnsigned, &tempUnsigned,
+             (char *)img2_filename) != true)
+	{
+#ifdef DEBUG
+		printf("error reading ppm 2 for comparison\n");
+#endif
+		return false;
+	}
+	
+	// Do the comparison
+	for(int i = 0; i < MED_INPUT_IMG_SZ; i++)
+	{
+		if(img1[i] != img2[i])
+		{
+			diff[i] = 255;
+			rv = false;
+		}
+		else
+			diff[i] = 0;
+	}
+	
+	// Dump diff pgm if desired
+	if(diff_filename != NULL)
+		dump_ppm_data(diff_filename, MED_INPUT_IMG_WT, MED_INPUT_IMG_HT, 1, diff);
+	
+	return rv;
 }
 
 void copy_ppm(const char *filename, const char *copy_filename)
 {
-	//stub
+	unsigned char temp[MED_INPUT_IMG_SZ];
+	int tempInt;
+	unsigned tempUnsigned;
+	char tempStr[100];
+	
+	if( readppm(temp, &tempInt, tempStr, &tempInt, &tempUnsigned, &tempUnsigned, &tempUnsigned,
+             (char *)filename) != true)
+		printf("Problems w copy_ppm\n");
+	dump_ppm_data(copy_filename, MED_INPUT_IMG_WT, MED_INPUT_IMG_HT, 1, temp);
 }
 
 
@@ -120,23 +172,24 @@ int main()
 	float elap_time, pxPerSec;
 	int passCount = 0, failCount = 0;
 	bool tempbool;
-	char copy_file[50], tempStr[100];
+	char copy_file[64], tempStr[100];
 	
 	// Save off input image original
-	sprintf(copy_file, "%s", MED_INPUT_IMG);
+	sprintf(copy_file, "%s", INPUT_IMG_FOLDER MED_INPUT_IMG);
 	strncpy(tempStr, &copy_file[strnlen(copy_file, 25)-4], 4); // copy just file extension
-	copy_file[strnlen(copy_file, 25)-4] = 0; // Terminate string without extension
+	copy_file[strnlen(copy_file, 64)-4] = 0; // Terminate string without extension
 	strncat(copy_file, "_orignal", 8); // add original to end of filename
 	strncat(copy_file, tempStr, 4); // put extension back on
-	copy_ppm(MED_INPUT_IMG, copy_file);
+	copy_ppm(INPUT_IMG_FOLDER MED_INPUT_IMG, copy_file);
 
 	//// Test that the Transforms actually transform correctly
 	printf("Feature Testing-------------------------------------\n");
 	
 	// Run Sobel Transform - R001
 	printf("-----Sobel Transform-----\n");
-	system(SOBEL_CMD" -img="MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
-	if( compare_ppm(SOBEL_OUT, MED_INPUT_IMG_SOBEL) )
+	system(SOBEL_CMD" -img="INPUT_IMG_FOLDER MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
+	printf("Sobel complete\n");
+	if( compare_ppm(SOBEL_OUT, MED_INPUT_IMG_SOBEL, "sobel_diff.pgm") )
 	{
 		printf("Sobel transform output matches expected output.\n");
 		printf("                                     R001 PASSED\n");
@@ -151,8 +204,8 @@ int main()
 	
 	// Run Hough Transform - R002
 	printf("-----Hough Transform-----\n");
-	system(HOUGH_CMD" -img="MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
-	if( compare_ppm(HOUGH_OUT, MED_INPUT_IMG_HOUGH) )
+	system(HOUGH_CMD" -img="INPUT_IMG_FOLDER MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
+	if( compare_ppm(HOUGH_OUT, MED_INPUT_IMG_HOUGH, "hough_diff.pgm") )
 	{
 		printf("Hough transform output matches expected output.\n");
 		printf("                                     R002 PASSED\n");
@@ -167,8 +220,8 @@ int main()
 	
 	// Run Pyramidal Transform - R003
 	printf("-----Pyramidal Transforms-----\n");
-	system(PYR_CMD" -img="MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
-	if( compare_ppm(PYRUP_OUT, MED_INPUT_IMG_PYRUP) )
+	system(PYR_CMD" -img="INPUT_IMG_FOLDER MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
+	if( compare_ppm(PYRUP_OUT, MED_INPUT_IMG_PYRUP, "pyrup_diff.pgm") )
 	{
 		printf("Pyramidal Up transform output matches expected output.\n");
 		tempbool = true;
@@ -180,7 +233,7 @@ int main()
 		tempbool = false;
 		failCount++;
 	}
-	if( compare_ppm(PYRDWN_OUT, MED_INPUT_IMG_PYRDWN) )
+	if( compare_ppm(PYRDWN_OUT, MED_INPUT_IMG_PYRDWN, "prydwn_diff.pgm") )
 	{
 		printf("Pyramidal Down transform output matches expected output.\n");
 		if(tempbool) printf("                                     R003 PASSED\n");
@@ -199,7 +252,7 @@ int main()
 	// Sobel Performance Testing - R006
 	// Call ./SOBEL_CMD with normal input image and time it
 	clock_gettime(CLOCK_REALTIME, &start_time);
-	system(SOBEL_CMD" -img="MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
+	system(SOBEL_CMD" -img="INPUT_IMG_FOLDER MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
 	clock_gettime(CLOCK_REALTIME, 	&end_time);
 	elap_time = timespec2double(end_time) - timespec2double(start_time);
 	printf("Sobel Elapsed Time:     %.3f ms\n", elap_time);
@@ -218,7 +271,7 @@ int main()
 	
 	// R007, R003 - Pyramidal Performance Testing
 	clock_gettime(CLOCK_REALTIME, &start_time);
-	system(PYR_CMD" -img="MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
+	system(PYR_CMD" -img="INPUT_IMG_FOLDER  MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
 	clock_gettime(CLOCK_REALTIME, 	&end_time);
 	elap_time = timespec2double(end_time) - timespec2double(start_time);
 	printf("Pyramidal Elapsed Time: %.3f ms\n",elap_time);
@@ -237,7 +290,7 @@ int main()
 	
 	// R008, R002 - Hough Performance Testing
 	clock_gettime(CLOCK_REALTIME, &start_time);
-	system(HOUGH_CMD" -img="MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
+	system(HOUGH_CMD" -img="INPUT_IMG_FOLDER MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
 	clock_gettime(CLOCK_REALTIME, 	&end_time);
 	elap_time = timespec2double(end_time) - timespec2double(start_time);
 	printf("Hough Elapsed Time:     %.3f ms\n", elap_time);
@@ -258,7 +311,7 @@ int main()
 	printf("Error Handling Testing------------------------------\n");
 	
 	printf("Original image check..\n");
-	if(compare_ppm(MED_INPUT_IMG, copy_file))
+	if(compare_ppm(INPUT_IMG_FOLDER MED_INPUT_IMG, copy_file, NULL))
 	{
 		printf(" ..Input image has not changed\n");
 		printf("                                     R015 PASSED\n");

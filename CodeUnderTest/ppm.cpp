@@ -18,6 +18,7 @@
 //	recreate our results and make suggestions to improve and extend the benchmarks over time.
 //
 //*****************************************************************************************//
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <cstring>
@@ -25,6 +26,9 @@
 #include <stdbool.h>
 
 #include "ppm.h"
+
+#define DEBUG
+
 // RYAN
 bool parse_ppm_header(const char *filename, unsigned int *width, unsigned int *height, unsigned int *channels) {
   FILE *fp = NULL;
@@ -204,8 +208,13 @@ parse_ppm_data(const char *filename, unsigned int *width, unsigned int *height, 
 // Dump frame data in PPM format.
 void 
 dump_ppm_data(std::string filename, unsigned int width, unsigned int height, unsigned int channels, unsigned char *data) {
-  std::cout << "Dumping " << filename << std::endl;
+
   FILE *f = fopen(filename.c_str(), "wb");
+  
+#ifdef DEBUG
+  std::cout << "Dumping " << filename << std::endl;
+#endif
+
   if (f != NULL) {
     if (channels == 1) {
       fprintf(f, "P5\n%d %d\n%d\n", width, height, 255);
@@ -234,7 +243,7 @@ dump_ppm_data(std::string filename, unsigned int width, unsigned int height, uns
 } 
 
 /* Siewert */
-void readppm(unsigned char *buffer, int *bufferlen, 
+bool readppm(unsigned char *buffer, int *bufferlen, 
              char *header, int *headerlen,
              unsigned *rows, unsigned *cols, unsigned *chans,
              char *file)
@@ -245,6 +254,14 @@ void readppm(unsigned char *buffer, int *bufferlen,
     *headerlen=0;
 
     filep=fopen(file, "r");
+	
+	if(filep == NULL)
+	{
+		printf("Error opening %s - %s\n\r", file, strerror(errno));
+		printf("Searching in...");
+		system("pwd");
+		return false;	// error reading file
+	}
 
     // read and validate header
     if((*headerlen += getline(&aline, &linelen, filep)) < 0)
@@ -286,6 +303,12 @@ void readppm(unsigned char *buffer, int *bufferlen,
     } while(toread > 0 && (!feof(filep)));
 
     fclose(filep);
+	
+#ifdef DEBUG
+	printf("Opened %s\n", file);
+#endif
+	
+	return true;
 }
 
 
