@@ -6,6 +6,6 @@ CreateTruth/RhoThetaOut.*
 
 *.o
 
-Hough_Jetson/hough
-Sobel_Jetson/sobel_edge
-Pyramidal_Jetson/pyramid
+CodeUnderTest/hough
+CodeUnderTest/sobel_edge
+CodeUnderTest/pyramid
