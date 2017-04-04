@@ -12,13 +12,13 @@
 
 %% Input Parameters
 %Input Image
-inputImgFilename = 'saturn_medium.jpg';
+inputImgFilename = 'mount_l.pgm';
 
 %Image showing magnification level
 imshowMag = 10;     % percent
 
 %Output File type
-outFileType = 'ppm';
+outFileType = 'pgm';
 
 % Sobel
 useAutoThresholdSobel = true;
@@ -33,7 +33,10 @@ houghNumLines = 5;
 %% Setup for Image transformations
 close all
 
+cd ..\Test_images\;
 colorImg = imread(inputImgFilename);
+cd ..\CreateTruth\;
+
 [height, width, depth] = size(colorImg);
 if depth == 3
     grayImg = rgb2gray(colorImg);
