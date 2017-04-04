@@ -59,7 +59,7 @@
 #define TOO_LARGE_IMG			/*Some huge ppm file*/
 #define TOO_SMALL_IMG			/*Some tiny ppm file*/
 
-#define MED_INPUT_IMG			"beach_160x120.pgm"
+#define MED_INPUT_IMG			"../Test_images/mount_xl.pgm"
 #define MED_INPUT_IMG_HT		(120)
 #define MED_INPUT_IMG_WT		(160)
 #define MED_INPUT_IMG_SZ		(MED_INPUT_IMG_HT * MED_INPUT_IMG_WT)
@@ -71,12 +71,12 @@
 #define MAX_PPM_HR_LEN			( 50)
 
 #define SOBEL_CMD				"./sobel"
-#define SOBEL_OUT				"sobel_out.ppm "
+#define SOBEL_OUT				"sobel_out.pgm "
 #define PYR_CMD					"./pyramid"
 #define PYRUP_OUT				"pyrup.ppm "
-#define PYRDWN_OUT				"pyrdown.ppm "
+#define PYRDWN_OUT				"pyrdown.pgm "
 #define HOUGH_CMD				"./hough"
-#define HOUGH_OUT				"hough.ppm "
+#define HOUGH_OUT				"hough.pgm "
 #define NO_CMD_OUTPUT			">/dev/null 2>&1"
 #define OUTPUT_TO_FILE			">>transformOutputs.txt 2>>transformOutputs.txt"
 #define NO_WAIT					" -nowait"
