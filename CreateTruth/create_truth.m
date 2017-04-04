@@ -11,8 +11,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Input Parameters
-%Input Image
-inputImgFilename = 'mount_l.pgm';
+%Input Image in "..\Test_images\" folder
+inputImgFilename = 'mount_xl.pgm';
 
 %Image showing magnification level
 imshowMag = 10;     % percent
