@@ -23,7 +23,7 @@ sobel: sobel.cu
 
 test_benchmarks: testDriver.o
 	### BUILDING TEST DRIVER ###
-	g++ testDriver.c -o $@ -O0 -Wall
+	g++ testDriver.c ppm.o -o $@ -O0 -Wall
 	
 test:
 	### FORCING REBUILD OF TEST DRIVER ###

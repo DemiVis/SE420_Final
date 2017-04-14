@@ -369,7 +369,7 @@ int main(int argc, char* argv[])
 	pthread_join(rt_thread, NULL);
 	
 	// Writeback results
-	dump_ppm_data("hough.ppm", hough_width, hough_height, img_chan, result);
+	dump_ppm_data("hough.pgm", hough_width, hough_height, img_chan, result);
 	
 	// Free memory
 	free(input_image);

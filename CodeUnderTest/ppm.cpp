@@ -24,10 +24,12 @@
 #include <cstring>
 #include <iostream>
 #include <stdbool.h>
+#include <unistd.h> // for usleep
 
 #include "ppm.h"
 
 #define DEBUG
+#define PPM_COMMENT		"# Output SDP Benchmarks"
 
 // RYAN
 bool parse_ppm_header(const char *filename, unsigned int *width, unsigned int *height, unsigned int *channels) {
@@ -217,7 +219,7 @@ dump_ppm_data(std::string filename, unsigned int width, unsigned int height, uns
 
   if (f != NULL) {
     if (channels == 1) {
-      fprintf(f, "P5\n%d %d\n%d\n", width, height, 255);
+      fprintf(f, "P5\n%s\n%d %d\n%d\n", PPM_COMMENT, width, height, 255);
       for(unsigned int y = 0; y < height; ++y) {
         for(unsigned int x = 0; x < width; ++x) {
           // This assumes byte-order is little-endian.
@@ -257,8 +259,8 @@ bool readppm(unsigned char *buffer, int *bufferlen,
 	
 	if(filep == NULL)
 	{
-		printf("Error opening %s - %s\n\r", file, strerror(errno));
-		printf("Searching in...");
+		printf("Error opening \"%s\" - %s\n\r", file, strerror(errno));
+		printf("Searching in..."); fflush(stdout);
 		system("pwd");
 		return false;	// error reading file
 	}

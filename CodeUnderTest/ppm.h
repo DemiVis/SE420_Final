@@ -29,7 +29,7 @@ void dump_ppm_data(std::string filename, unsigned int width, unsigned int height
 
 
 /* SIEWERT */
-void readppm(unsigned char *buffer, int *bufferlen, 
+bool readppm(unsigned char *buffer, int *bufferlen, 
              char *header, int *headerlen,
              unsigned *rows, unsigned *cols, unsigned *chans,
              char *file);

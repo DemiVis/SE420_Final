@@ -510,7 +510,7 @@ int main(int argc, char* argv[])
 	pthread_join(rt_thread, NULL);
 	
 	// Write back result
-	dump_ppm_data("sobel_out.ppm", img_width, img_height, img_chan, h_img_out_array);
+	dump_ppm_data("sobel_out.pgm", img_width, img_height, img_chan, h_img_out_array);
 	
 	// Free up memory
 #ifdef DEBUG
