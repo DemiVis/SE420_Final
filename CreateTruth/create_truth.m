@@ -12,7 +12,7 @@
 
 %% Input Parameters
 %Input Image in "..\Test_images\" folder
-inputImgFilename = 'mount_xl.pgm';
+inputImgFilename = 'mount_m.pgm';
 
 %Image showing magnification level
 imshowMag = 10;     % percent
@@ -61,7 +61,7 @@ figure
 imshow(sobelImg,'InitialMagnification',imshowMag);
 titleStr = sprintf('Sobel Transformed Image, Thresh:%1.3f', thresh);
 title(titleStr);
-imwrite(sobelImg, strcat('SobelOut','.',outFileType), outFileType);
+imwrite(sobelImg, strcat('sobel_expected','.',outFileType), outFileType);
 
 %% Hough
 [rhoThetaImg,theta,rho] = hough(sobelImg);
@@ -86,7 +86,7 @@ for k = 1:length(lines)
    xy = [lines(k).point1; lines(k).point2];
    plot(xy(:,1),xy(:,2),'LineWidth',2,'Color','red');
 end
-imwrite(sobelImg, strcat('HoughOut','.',outFileType), outFileType);
+imwrite(sobelImg, strcat('hough_expected','.',outFileType), outFileType);
 
 %% Pyramidal Up
 pyrdwnImg = impyramid(grayImg, 'reduce');
@@ -98,7 +98,7 @@ imshow(pyrdwnImg,'InitialMagnification',imshowMag)
 [height, width] = size(pyrdwnImg);
 titleStr = sprintf('Pyramidal Down Converted %dx%d', width, height);
 title(titleStr);
-imwrite(pyrdwnImg, strcat('PyrdwnOut','.',outFileType), outFileType)
+imwrite(pyrdwnImg, strcat('pyrdown_expected','.',outFileType), outFileType)
 subplot(1,3,2)
 imshow(grayImg,'InitialMagnification',imshowMag)
 [height, width] = size(grayImg);
@@ -109,4 +109,4 @@ imshow(pyrupImg,'InitialMagnification',imshowMag)
 [height, width] = size(pyrupImg);
 titleStr = sprintf('Pyramidal Up Converted %dx%d', width, height);
 title(titleStr);
-imwrite(pyrupImg, strcat('PyrupOut','.',outFileType), outFileType)
+imwrite(pyrupImg, strcat('pyrup_expected','.',outFileType), outFileType)
