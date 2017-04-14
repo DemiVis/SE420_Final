@@ -9,3 +9,7 @@ CreateTruth/RhoThetaOut.*
 CodeUnderTest/hough
 CodeUnderTest/sobel_edge
 CodeUnderTest/pyramid
+
+CodeUnderTest/hough_timing.h
+CodeUnderTest/sobel_timing.h
+CodeUnderTest/pyr_timing.h

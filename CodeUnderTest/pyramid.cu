@@ -54,8 +54,7 @@
 // Debug mode
 //#define DEBUG
 
-// Functions
-void Cleanup(void);
+#define TIMING_FILE		"pyr_timing.txt"
 
 // Kernels (in pyramid_kernel.cu)
 __global__ void PyrDown(unsigned char *g_DataIn, unsigned char *g_DataOut, int width, int height);
@@ -86,18 +85,7 @@ struct timespec run_time = {0, 0};
 bool run_once = false;
 int freq = 0;
 std::string imageFilename = DEFAULT_IMAGE;
-
-/***********************************************************
- * Functions to cleanup after code complete		  **
- ***********************************************************/
-void Cleanup(void)
-{
-#ifdef DEBUG
-	printf("DEBUG: Cleanup().\n");
-#endif
-    cudaThreadExit();
-    exit(0);
-}
+double elap_time_d;
 
 //***************************************************************//
 // Initialize CUDA 
@@ -176,7 +164,7 @@ void *CUDA_transform_thread(void * threadp)
 	// CUDA transform local variables
 	struct timespec start_time, end_time, elap_time, diff_time;
 	int errVal;
-	double start_time_d, end_time_d, elap_time_d, diff_time_d;
+	double start_time_d, end_time_d, diff_time_d;
 
 	// initialize needed variables
 	int gridWidth  = (img_width + TILE_WIDTH - 1) / TILE_WIDTH;
@@ -297,7 +285,7 @@ void *CPU_transform_thread(void * threadp)
 	// CUDA transform local variables
 	struct timespec start_time, end_time, elap_time, diff_time;
 	int errVal;
-	double start_time_d, end_time_d, elap_time_d, diff_time_d;
+	double start_time_d, end_time_d, diff_time_d;
 
 	// Allocate Memory
     pyrdown_image = (unsigned char *)malloc(img_width/2 * img_height/2);
@@ -529,8 +517,24 @@ int main(int argc, char* argv[])
     free(pyrup_image);
 	free(pyrdiff_image);
 
-	// Final Cleanup
-	Cleanup();
-
-    return 0;
+	// Close CUDA
+	cudaThreadExit();
+	
+	if( run_once && !wait ) // usually only in testing, so output speed of transform to file
+	{
+		FILE *fp;
+		
+		fp = fopen(TIMING_FILE, "w");
+		
+		// Write the elapsed time in microseconds
+		fprintf(fp, "**%d**", (int)(elap_time_d*1000));
+		
+		fclose(fp);
+		
+		// Print for debugging for now
+		printf("**%d**\n", (int)(elap_time_d*1000));
+	}
+	
+	// End the program
+	exit(EXIT_SUCCESS);
 }

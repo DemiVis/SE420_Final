@@ -47,6 +47,8 @@
 // Debug mode
 //#define DEBUG  
 
+#define TIMING_FILE	"hough_timing.txt"
+
 // Kernels (in houghKernels.cu)
 __global__ void sobel(u_char * frame_in, u_char * frame_out, int width, int height);
 __global__ void houghTransform(u_char * frame_in, u_char * frame_out, const int hough_h);
@@ -70,18 +72,7 @@ struct timespec run_time = {0, 0};
 bool run_once = false;
 int freq = 0;
 std::string imageFilename = DEFAULT_IMAGE;
-
-/***********************************************************
- * Functions to cleanup after code complete		  **
- ***********************************************************/
-void Cleanup(void)
-{
-#ifdef DEBUG
-	printf("DEBUG: Cleanup().\n");
-#endif
-     cudaThreadExit() ;
-    exit(0);
-}
+double elap_time_d; // in ms
 
 //***************************************************************//
 // Take the difference of two timespec structures
@@ -117,7 +108,7 @@ void *CUDA_transform_thread(void * threadp)
 	// CUDA transform local variables
 	struct timespec start_time, end_time, elap_time, diff_time;
 	cudaError_t errVal;
-	double start_time_d, end_time_d, elap_time_d, diff_time_d;
+	double start_time_d, end_time_d, diff_time_d;
 	u_char* devInImage;
 	u_char* devTresholded;
 	u_char *A;
@@ -375,8 +366,25 @@ int main(int argc, char* argv[])
 	free(input_image);
 	free(result);
 
-	// Final Cleanup
-	Cleanup();
+	// Close CUDA
+	cudaThreadExit();
 
-    return 0;
+	if( run_once && !wait ) // usually only in testing, so output speed of transform to file
+	{
+		FILE *fp;
+		
+		fp = fopen(TIMING_FILE, "w");
+		
+		// Write the elapsed time in microseconds
+		fprintf(fp, "**%d**", (int)(elap_time_d*1000));
+		
+		fclose(fp);
+		
+		// Print for debugging for now
+		printf("**%d**\n", (int)(elap_time_d*1000));
+	}
+	
+	// End the program
+	exit(EXIT_SUCCESS);
+	
 }

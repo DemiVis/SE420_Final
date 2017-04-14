@@ -50,6 +50,8 @@
 
 //#define DEBUG
 
+#define TIMING_FILE	"sobel_timing.txt"
+
 // Global variables for RT threads
 pthread_attr_t rt_sched_attr;
 struct sched_param rt_param;
@@ -64,6 +66,7 @@ unsigned int img_width, img_height, img_chan;
 bool run_once = false;
 int freq = 0;
 std::string imageFilename = DEFAULT_IMAGE;
+double elap_time_d;
 
 //***************************************************************//
 // Initialize CUDA hardware
@@ -205,7 +208,7 @@ void *CUDA_transform_thread(void * threadp)
 	unsigned char *d_img_out_array=NULL, *d_img_in_array=NULL;
 	struct timespec start_time, end_time, elap_time, diff_time;
 	int errVal;
-	double start_time_d, end_time_d, elap_time_d, diff_time_d;
+	double start_time_d, end_time_d, diff_time_d;
 	dim3 threads(BLOCK_SIZE, BLOCK_SIZE);
 	dim3 grid(img_width / threads.x, img_height / threads.y);
 
@@ -297,7 +300,7 @@ void *CPU_transform_thread(void * threadp)
 	// CPU transform local variables
 	struct timespec start_time, end_time, elap_time, diff_time;
 	int errVal;
-	double start_time_d, end_time_d, elap_time_d, diff_time_d;
+	double start_time_d, end_time_d, diff_time_d;
 
 	// Allocate memory
 	h_img_out_array = (unsigned char *)malloc(img_width * img_height);
@@ -518,6 +521,23 @@ int main(int argc, char* argv[])
 #endif
 	free(h_img_out_array);
 	free(h_img_in_array);
+
+	// Final cleanup and whatnot
+	if( run_once && !wait ) // usually only in testing, so output speed of transform to file
+	{
+		FILE *fp;
+		
+		fp = fopen(TIMING_FILE, "w");
+		
+		// Write the elapsed time in microseconds
+		fprintf(fp, "**%d**", (int)(elap_time_d*1000));
+		
+		fclose(fp);
+		
+		// Print for debugging for now
+		printf("**%d**\n", (int)(elap_time_d*1000));
+	}
 	
-	return 0;
+	// End the program
+	exit(EXIT_SUCCESS);
 }

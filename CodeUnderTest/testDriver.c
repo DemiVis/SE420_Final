@@ -87,6 +87,12 @@
 
 #define NUM_TESTS				10
 
+#define US_PER_SEC				1000000.0
+
+#define SOBEL_TIMING_FILE	"sobel_timing.txt"
+#define HOUGH_TIMING_FILE	"hough_timing.txt"
+#define PYR_TIMING_FILE		"pyr_timing.txt"
+
 #define DEBUG
 //***************************************************************//
 // Convert timespec to double containing time in ms
@@ -165,12 +171,33 @@ void copy_ppm(const char *filename, const char *copy_filename)
 	dump_ppm_data(copy_filename, MED_INPUT_IMG_WT, MED_INPUT_IMG_HT, 1, temp);
 }
 
+long int get_transform_timing(const char *filename)
+{
+	char tempChar;
+	long int rv;
+	FILE *fp = fopen(filename, "r");
+	
+	// Get passed the '**" at the beginning
+	tempChar = fgetc(fp);
+	if(tempChar != '*') return -1;
+	tempChar = fgetc(fp);
+	if(tempChar != '*') return -1;
+	
+	// Get the number
+	fscanf(fp,"%ld",&rv);
+	
+	// Most basic check for correctness
+	if(rv < 0) return -1;
+	
+	return rv;
+}
+
 
 
 int main()
 {
-	struct timespec start_time, end_time;
-	float elap_time, pxPerSec;
+	//struct timespec start_time, end_time;
+	long int elap_time, pxPerSec;
 	int passCount = 0, failCount = 0;
 	bool tempbool;
 	char copy_file[64], tempStr[100];
@@ -251,14 +278,11 @@ int main()
 	//// Performance Testing Section
 	printf("Performance Testing---------------------------------\n");
 	// Sobel Performance Testing - R006
-	// Call ./SOBEL_CMD with normal input image and time it
-	clock_gettime(CLOCK_REALTIME, &start_time);
 	system(SOBEL_CMD" -img="INPUT_IMG_FOLDER MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
-	clock_gettime(CLOCK_REALTIME, 	&end_time);
-	elap_time = timespec2double(end_time) - timespec2double(start_time);
-	printf("Sobel Elapsed Time:     %.3f ms\n", elap_time);
-	pxPerSec = MED_INPUT_IMG_SZ*1000/elap_time;
-	printf("                       (%.0f px/s)", pxPerSec);
+	elap_time = get_transform_timing(SOBEL_TIMING_FILE);
+	printf("Sobel Elapsed Time:     %ld us\n", elap_time);
+	pxPerSec = MED_INPUT_IMG_SZ*US_PER_SEC/elap_time;
+	printf("                       (%ld px/s)", pxPerSec);
 	if(pxPerSec < SOBEL_MIN_PX_PER_SEC)
 	{
 		printf(" R006 FAILED\n");
@@ -268,16 +292,17 @@ int main()
 	{
 		printf(" R006 PASSED\n");
 		passCount++;
+		
+		// Remove the timing file if passed since don't need for cause analysis
+		system("rm -f "SOBEL_TIMING_FILE);
 	}
 	
 	// R007, R003 - Pyramidal Performance Testing
-	clock_gettime(CLOCK_REALTIME, &start_time);
-	system(PYR_CMD" -img="INPUT_IMG_FOLDER  MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
-	clock_gettime(CLOCK_REALTIME, 	&end_time);
-	elap_time = timespec2double(end_time) - timespec2double(start_time);
-	printf("Pyramidal Elapsed Time: %.3f ms\n",elap_time);
-	pxPerSec = MED_INPUT_IMG_SZ*1000/elap_time;
-	printf("                       (%.0f px/s)", pxPerSec);
+	elap_time = (float) system(PYR_CMD" -img="INPUT_IMG_FOLDER  MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
+	elap_time = get_transform_timing(PYR_TIMING_FILE);
+	printf("Pyramidal Elapsed Time: %ld us\n",elap_time);
+	pxPerSec = MED_INPUT_IMG_SZ*US_PER_SEC/elap_time;
+	printf("                       (%ld px/s)", pxPerSec);
 	if(pxPerSec < PYR_MIN_PX_PER_SEC)
 	{
 		printf(" R007 FAILED\n");
@@ -287,16 +312,17 @@ int main()
 	{
 		printf(" R007 PASSED\n");
 		passCount++;
+		
+		// Remove the timing file if passed since don't need for cause analysis
+		system("rm -f "PYR_TIMING_FILE);
 	}
 	
 	// R008, R002 - Hough Performance Testing
-	clock_gettime(CLOCK_REALTIME, &start_time);
 	system(HOUGH_CMD" -img="INPUT_IMG_FOLDER MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
-	clock_gettime(CLOCK_REALTIME, 	&end_time);
-	elap_time = timespec2double(end_time) - timespec2double(start_time);
-	printf("Hough Elapsed Time:     %.3f ms\n", elap_time);
-	pxPerSec = MED_INPUT_IMG_SZ*1000/elap_time;
-	printf("                       (%.0f px/s)", pxPerSec);
+	elap_time = get_transform_timing(HOUGH_TIMING_FILE);
+	printf("Hough Elapsed Time:     %ld us\n", elap_time);
+	pxPerSec = MED_INPUT_IMG_SZ*US_PER_SEC/elap_time;
+	printf("                       (%ld px/s)", pxPerSec);
 	if(pxPerSec < HOUGH_MIN_PX_PER_SEC)
 	{
 		printf(" R008 FAILED\n");
@@ -306,6 +332,9 @@ int main()
 	{
 		printf(" R008 PASSED\n");
 		passCount++;
+		
+		// Remove the timing file if passed since don't need for cause analysis
+		system("rm -f "HOUGH_TIMING_FILE);
 	}
 	
 	// Test error handling capabilities
