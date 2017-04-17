@@ -85,8 +85,6 @@
 #define NO_WAIT					" -nowait"
 #define USE_CUDA				" -cuda"
 
-#define NUM_TESTS				10
-
 #define US_PER_SEC				1000000.0
 
 #define SOBEL_TIMING_FILE	"sobel_timing.txt"
@@ -94,6 +92,26 @@
 #define PYR_TIMING_FILE		"pyr_timing.txt"
 
 #define DEBUG
+
+enum tests_t {	SOBEL_OUTPUT,
+				HOUGH_OUTPUT,
+				PYRUP_OUTPUT,
+				PYRDWN_OUTPUT,
+				SOBEL_PERF,
+				PYR_PERF,
+				HOUGH_PERF,
+				ORIG_IMG,
+				NUM_TESTS	};
+char test_t_str[][27] = {  "Sobel Output Test",
+						   "Hough Output Test",
+						   "Pyramidal Up Output Test",
+						   "Pyramidal Down Output Test",
+						   "Sobel Performance Test",
+						   "Pyramidal Performance Test",
+						   "Hough Performance Test",
+						   "Original Image Test",
+						   ""};
+
 //***************************************************************//
 // Convert timespec to double containing time in ms
 //***************************************************************//
@@ -112,13 +130,13 @@ void clear_outputs(void)
 		   
 // compare ppm pixel by pixel and create diff image
 // Only works for medium image sized pgm images
-bool compare_ppm(const char * img1_filename, const char * img2_filename, const char *diff_filename)
+int compare_ppm(const char * img1_filename, const char * img2_filename, const char *diff_filename)
 {
 	unsigned char img1[MED_INPUT_IMG_SZ], img2[MED_INPUT_IMG_SZ], diff[MED_INPUT_IMG_SZ];
 	char temp[512];
 	int tempInt;
 	unsigned tempUnsigned;
-	bool rv = true;
+	int rv = 1;
 	
 	// Read input files
 	if( readppm(img1, &tempInt, temp, &tempInt, &tempUnsigned, &tempUnsigned, &tempUnsigned,
@@ -127,7 +145,7 @@ bool compare_ppm(const char * img1_filename, const char * img2_filename, const c
 #ifdef DEBUG
 		printf("error reading ppm 1 for comparison\n");
 #endif
-		return false;
+		return -1;
 	}
 	if( readppm(img2, &tempInt, temp, &tempInt, &tempUnsigned, &tempUnsigned, &tempUnsigned,
              (char *)img2_filename) != true)
@@ -135,7 +153,7 @@ bool compare_ppm(const char * img1_filename, const char * img2_filename, const c
 #ifdef DEBUG
 		printf("error reading ppm 2 for comparison\n");
 #endif
-		return false;
+		return -2;
 	}
 	
 	// Do the comparison
@@ -144,7 +162,7 @@ bool compare_ppm(const char * img1_filename, const char * img2_filename, const c
 		if(img1[i] != img2[i])
 		{
 			diff[i] = 255;
-			rv = false;
+			rv = 0;
 		}
 		else
 			diff[i] = 0;
@@ -155,9 +173,9 @@ bool compare_ppm(const char * img1_filename, const char * img2_filename, const c
 		dump_ppm_data(diff_filename, MED_INPUT_IMG_WT, MED_INPUT_IMG_HT, 1, diff);
 	
 	return rv;
-	//return true; // stub until can be fixed
 }
 
+// create a copy of a ppm
 void copy_ppm(const char *filename, const char *copy_filename)
 {
 	unsigned char temp[MED_INPUT_IMG_SZ];
@@ -171,6 +189,7 @@ void copy_ppm(const char *filename, const char *copy_filename)
 	dump_ppm_data(copy_filename, MED_INPUT_IMG_WT, MED_INPUT_IMG_HT, 1, temp);
 }
 
+// get the timing out of a timing file created by a transform
 long int get_transform_timing(const char *filename)
 {
 	char tempChar;
@@ -192,20 +211,20 @@ long int get_transform_timing(const char *filename)
 	return rv;
 }
 
-
-
 int main()
 {
 	//struct timespec start_time, end_time;
 	long int elap_time, pxPerSec;
-	int passCount = 0, failCount = 0;
-	bool tempbool;
-	char copy_file[64], tempStr[100];
+	bool temp_bool;
+	int temp_int;
+	char copy_file[64], tempStr[64];
+	char fail_string[NUM_TESTS][64];
+	bool test_passed[NUM_TESTS];
 	
 	// Save off input image original
 	sprintf(copy_file, "%s", INPUT_IMG_FOLDER MED_INPUT_IMG);
-	strncpy(tempStr, &copy_file[strnlen(copy_file, 25)-4], 4); // copy just file extension
-	copy_file[strnlen(copy_file, 64)-4] = 0; // Terminate string without extension
+	strncpy(tempStr, &copy_file[strnlen(copy_file, 25)-3], 4); // copy just file extension
+	copy_file[strnlen(copy_file, 64)-3] = 0; // Terminate string without extension
 	strncat(copy_file, "_orignal", 8); // add original to end of filename
 	strncat(copy_file, tempStr, 4); // put extension back on
 	copy_ppm(INPUT_IMG_FOLDER MED_INPUT_IMG, copy_file);
@@ -217,62 +236,86 @@ int main()
 	printf("-----Sobel Transform-----\n");
 	system(SOBEL_CMD" -img="INPUT_IMG_FOLDER MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
 	printf("Sobel complete\n");
-	if( compare_ppm(SOBEL_OUT, MED_INPUT_IMG_SOBEL, "sobel_diff.pgm") )
+	if( (temp_int = compare_ppm(SOBEL_OUT, MED_INPUT_IMG_SOBEL, "sobel_diff.pgm") ) > 0 )
 	{
 		printf("Sobel transform output matches expected output.\n");
 		printf("                                     R001 PASSED\n");
-		passCount++;
+		test_passed[SOBEL_OUTPUT] = true;
 	}
 	else
 	{
 		printf("Sobel transform does not match expected output.\n");
 		printf("                                     R001 FAILED\n");
-		failCount++;
+		test_passed[SOBEL_OUTPUT] = false;
+		if(temp_int == 0)
+			sprintf(fail_string[SOBEL_OUTPUT],"benchmark output does not match expected output");
+		else if(temp_int == -1)
+			sprintf(fail_string[SOBEL_OUTPUT],"could not open the transform output");
+		else if(temp_int == -2)
+			sprintf(fail_string[SOBEL_OUTPUT],"could not open expected output");
 	}
 	
 	// Run Hough Transform - R002
 	printf("-----Hough Transform-----\n");
 	system(HOUGH_CMD" -img="INPUT_IMG_FOLDER MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
-	if( compare_ppm(HOUGH_OUT, MED_INPUT_IMG_HOUGH, "hough_diff.pgm") )
+	if( (temp_int = compare_ppm(HOUGH_OUT, MED_INPUT_IMG_HOUGH, "hough_diff.pgm") ) > 0 )
 	{
 		printf("Hough transform output matches expected output.\n");
 		printf("                                     R002 PASSED\n");
-		passCount++;
+		test_passed[HOUGH_OUTPUT] = true;
 	}
 	else
 	{
 		printf("Hough transform does not match expected output.\n");
 		printf("                                     R002 FAILED\n");
-		failCount++;
+		test_passed[HOUGH_OUTPUT] = false;
+		if(temp_int == 0)
+			sprintf(fail_string[HOUGH_OUTPUT],"benchmark output does not match expected output");
+		else if(temp_int == -1)
+			sprintf(fail_string[HOUGH_OUTPUT],"could not open the transform output");
+		else if(temp_int == -2)
+			sprintf(fail_string[HOUGH_OUTPUT],"could not open expected output");
 	}
 	
 	// Run Pyramidal Transform - R003
 	printf("-----Pyramidal Transforms-----\n");
 	system(PYR_CMD" -img="INPUT_IMG_FOLDER MED_INPUT_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
-	if( compare_ppm(PYRUP_OUT, MED_INPUT_IMG_PYRUP, "pyrup_diff.pgm") )
+	if( (temp_int = compare_ppm(PYRUP_OUT, MED_INPUT_IMG_PYRUP, "pyrup_diff.pgm") ) > 0)
 	{
 		printf("Pyramidal Up transform output matches expected output.\n");
-		tempbool = true;
-		passCount++;
+		temp_bool = true;
+		test_passed[PYRUP_OUTPUT] = true;
 	}
 	else
 	{
 		printf("Pyramidal Up transform does not match expected output.\n");
-		tempbool = false;
-		failCount++;
+		temp_bool = false;
+		test_passed[PYRUP_OUTPUT] = false;
+		if(temp_int == 0)
+			sprintf(fail_string[PYRUP_OUTPUT],"benchmark output does not match expected output");
+		else if(temp_int == -1)
+			sprintf(fail_string[PYRUP_OUTPUT],"could not open the transform output");
+		else if(temp_int == -2)
+			sprintf(fail_string[PYRUP_OUTPUT],"could not open expected output");
 	}
-	if( compare_ppm(PYRDWN_OUT, MED_INPUT_IMG_PYRDWN, "prydwn_diff.pgm") )
+	if( (temp_int = compare_ppm(PYRDWN_OUT, MED_INPUT_IMG_PYRDWN, "prydwn_diff.pgm") ) > 0)
 	{
 		printf("Pyramidal Down transform output matches expected output.\n");
-		if(tempbool) printf("                                     R003 PASSED\n");
-		else 		 printf("                                     R003 FAILED\n");
-		passCount++;
+		if(temp_bool) printf("                                     R003 PASSED\n");
+		else 	      printf("                                     R003 FAILED\n");
+		test_passed[PYRDWN_OUTPUT] = true;
 	}
 	else
 	{
 		printf("Pyramidal Down transform does not match expected output.\n");
 		printf("                                     R003 FAILED\n");
-		failCount++;
+		test_passed[PYRDWN_OUTPUT] = false;
+		if(temp_int == 0)
+			sprintf(fail_string[PYRDWN_OUTPUT],"benchmark output does not match expected output");
+		else if(temp_int == -1)
+			sprintf(fail_string[PYRDWN_OUTPUT],"could not open the transform output");
+		else if(temp_int == -2)
+			sprintf(fail_string[PYRDWN_OUTPUT],"could not open expected output");
 	}
 	
 	//// Performance Testing Section
@@ -286,12 +329,13 @@ int main()
 	if(pxPerSec < SOBEL_MIN_PX_PER_SEC)
 	{
 		printf(" R006 FAILED\n");
-		failCount++;
+		test_passed[SOBEL_PERF] = false;
+		sprintf(fail_string[SOBEL_PERF],"actual pixels per sec %.0f too low",SOBEL_MIN_PX_PER_SEC - pxPerSec);
 	}
 	else
 	{
 		printf(" R006 PASSED\n");
-		passCount++;
+		test_passed[SOBEL_PERF] = true;
 		
 		// Remove the timing file if passed since don't need for cause analysis
 		system("rm -f "SOBEL_TIMING_FILE);
@@ -306,12 +350,13 @@ int main()
 	if(pxPerSec < PYR_MIN_PX_PER_SEC)
 	{
 		printf(" R007 FAILED\n");
-		failCount++;
+		test_passed[PYR_PERF] = false;
+		sprintf(fail_string[PYR_PERF],"actual pixels per sec %.0f too low",SOBEL_MIN_PX_PER_SEC - pxPerSec);
 	}
 	else
 	{
 		printf(" R007 PASSED\n");
-		passCount++;
+		test_passed[PYR_PERF] = true;
 		
 		// Remove the timing file if passed since don't need for cause analysis
 		system("rm -f "PYR_TIMING_FILE);
@@ -326,12 +371,13 @@ int main()
 	if(pxPerSec < HOUGH_MIN_PX_PER_SEC)
 	{
 		printf(" R008 FAILED\n");
-		failCount++;
+		test_passed[HOUGH_PERF] = false;
+		sprintf(fail_string[HOUGH_PERF],"actual pixels per sec %.0f too low",SOBEL_MIN_PX_PER_SEC - pxPerSec);
 	}
 	else
 	{
 		printf(" R008 PASSED\n");
-		passCount++;
+		test_passed[HOUGH_PERF] = true;
 		
 		// Remove the timing file if passed since don't need for cause analysis
 		system("rm -f "HOUGH_TIMING_FILE);
@@ -341,23 +387,45 @@ int main()
 	printf("Error Handling Testing------------------------------\n");
 	
 	printf("Original image check..\n");
-	if(compare_ppm(INPUT_IMG_FOLDER MED_INPUT_IMG, copy_file, NULL))
+	if((temp_int = compare_ppm(INPUT_IMG_FOLDER MED_INPUT_IMG, copy_file, NULL) ) > 0)
 	{
 		printf(" ..Input image has not changed\n");
 		printf("                                     R015 PASSED\n");
-		passCount++;
+		test_passed[ORIG_IMG] = true;
 	}
 	else
 	{
 		
 		printf(" ..Input image has changed\n");
 		printf("                                   R015 FAILED\n");
-		failCount++;
+		test_passed[ORIG_IMG] = false;
+		if(temp_int == 0)
+			sprintf(fail_string[ORIG_IMG],"input no longer matches original image");
+		else if(temp_int == -1)
+			sprintf(fail_string[ORIG_IMG],"could not open the input image");
+		else if(temp_int == -2)
+			sprintf(fail_string[ORIG_IMG],"could not open the original copy");
 	}
 	
 	// Wrap it up
 	printf("TEST COMPLETE---------------------------------------\n");
-	printf("	%d test(s) passed\n", passCount);
-	printf("	%d test(s) failed\n", failCount);
+	printf("\nREGRESSION TEST REPORT-----------------------------\n");
+	temp_bool = false; // any test failed
+	for(int i = 0; i < NUM_TESTS; i++)
+	{
+		if(test_passed[i])
+		{
+			printf("  %s passed.\n",test_t_str[i]);
+		}
+		else
+		{
+			printf("  %s failed because \"%s\".\n",test_t_str[i],fail_string[i]);
+			temp_bool = true;
+		}
+	}
+	if(temp_bool) // if any test failed
+		printf("Some tests failed. Full regression test FAILED.\n");
+	else
+		printf("All tests passed. Full regression test PASSED.\n");
 }
 	
