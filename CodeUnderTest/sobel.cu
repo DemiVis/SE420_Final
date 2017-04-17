@@ -436,7 +436,7 @@ int main(int argc, char* argv[])
 	
 	// Initialize CUDA
 	if(!InitCUDA()) {
-		return 0;
+		exit(0);
 	};
 	
 	// Read Input image
