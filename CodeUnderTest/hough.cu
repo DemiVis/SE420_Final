@@ -44,6 +44,13 @@
 #define BLOCK_SIZE_2 	6	
 #define DEFAULT_IMAGE	"Cross.pgm"
 
+// Return Codes
+#define EXIT_SUCCESS				0
+#define EXIT_UNKOWN_ERROR			-1
+#define EXIT_IMG_SZ					1
+#define EXIT_IN_IMG_NOT_FOUND		2
+#define EXIT_IN_IMG_FORMATTING		3
+
 // Debug mode
 //#define DEBUG  
 

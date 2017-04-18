@@ -48,6 +48,13 @@
 #define BLOCK_SIZE 	8
 #define DEFAULT_IMAGE "beach.pgm"
 
+// Return Codes
+#define EXIT_SUCCESS				0
+#define EXIT_UNKOWN_ERROR			-1
+#define EXIT_IMG_SZ					1
+#define EXIT_IN_IMG_NOT_FOUND		2
+#define EXIT_IN_IMG_FORMATTING		3
+
 //#define DEBUG
 
 #define TIMING_FILE	"sobel_timing.txt"

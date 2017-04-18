@@ -51,6 +51,13 @@
 #define BLOCK_HEIGHT   (TILE_HEIGHT + 2*FILTER_RADIUS)
 #define DEFAULT_IMAGE	"beach.pgm"
 
+// Return Codes
+#define EXIT_SUCCESS				0
+#define EXIT_UNKOWN_ERROR			-1
+#define EXIT_IMG_SZ					1
+#define EXIT_IN_IMG_NOT_FOUND		2
+#define EXIT_IN_IMG_FORMATTING		3
+
 // Debug mode
 //#define DEBUG
 

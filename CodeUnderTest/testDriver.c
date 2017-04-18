@@ -33,7 +33,7 @@
 //			HOUGH_PERF test
 // R009 - 	The software shall be capable of transforming images of greater than 100k px 
 //			(240p low-def) and less than 8.29M px (4K ultra-high-def).
-//			
+//			LARGE_IMG and SMALL_IMG tests
 // R010 - 	The software shall not cause the use of more storage than that which is required 
 //			to store the input image(s) and a single output image(s).
 //			
@@ -74,8 +74,8 @@
 
 #define INPUT_IMG_FOLDER		"../Test_images/"
 
-#define TOO_LARGE_IMG			"mount_xl.pgm"
-#define TOO_SMALL_IMG			/*Some tiny ppm file*/
+#define TOO_LARGE_IMG			"mount_xl.pgm" // TODO: check if this is actually too large of an image
+#define TOO_SMALL_IMG			"mount_xs.pgm" // TODO: check if this is actually too small of an image
 
 #define MED_INPUT_IMG			"mount_m.pgm"
 #define MED_INPUT_IMG_HT		(480)
@@ -105,6 +105,13 @@
 #define SOBEL_TIMING_FILE	"sobel_timing.txt"
 #define HOUGH_TIMING_FILE	"hough_timing.txt"
 #define PYR_TIMING_FILE		"pyr_timing.txt"
+
+// Transform Return Codes
+#define EXIT_SUCCESS				0
+#define EXIT_UNKOWN_ERROR			-1
+#define EXIT_IMG_SZ					1
+#define EXIT_IN_IMG_NOT_FOUND		2
+#define EXIT_IN_IMG_FORMATTING		3
 
 #define DEBUG
 
@@ -237,7 +244,7 @@ int main()
 	bool temp_bool;
 	int temp_int;
 	char copy_file[64], tempStr[64];
-	char fail_string[NUM_TESTS][64];
+	char fail_string[NUM_TESTS][128];
 	bool test_passed[NUM_TESTS];
 	
 	// Save off input image original
@@ -404,6 +411,85 @@ int main()
 	
 	// Test error handling capabilities
 	printf("Error Handling Testing------------------------------\n");
+	// Check when input is an image that's too large
+	printf("Large Image Check..\n");
+	temp_int = system(SOBEL_CMD" -img="INPUT_IMG_FOLDER TOO_LARGE_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
+	if(temp_int == EXIT_IMG_SZ)
+	{
+		printf("  Sobel Passed!\n");
+		fail_string[LARGE_IMG][0] = 0; // Explicity set fail string to empty
+		temp_bool = true;
+	}
+	else
+	{
+		printf("  Sobel Failed!\n");
+		test_passed[LARGE_IMG] = false;
+		sprintf(fail_string[LARGE_IMG], "Sobel returned code %d. ", temp_int);
+	}
+	temp_int = system(PYR_CMD" -img="INPUT_IMG_FOLDER TOO_LARGE_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
+	if(temp_int == EXIT_IMG_SZ)
+	{
+		printf("  Pyramidal Passed!\n");
+		temp_bool = true;
+	}
+	else
+	{
+		printf("  Pyramidal Failed!\n");
+		test_passed[LARGE_IMG] = false;
+		sprintf(&fail_string[LARGE_IMG][strnlen(fail_string[LARGE_IMG],23)], "Pyramidal returned code %d. ", temp_int);
+	}
+	temp_int = system(HOUGH_CMD" -img="INPUT_IMG_FOLDER TOO_LARGE_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
+	if(temp_int == EXIT_IMG_SZ)
+	{
+		printf("  Hough Passed!\n");
+		temp_bool = true;
+	}
+	else
+	{
+		printf("  Hough Failed!\n");
+		test_passed[LARGE_IMG] = false;
+		sprintf(&fail_string[LARGE_IMG][strnlen(fail_string[LARGE_IMG],50)], "Hough returned code %d. ", temp_int);
+	}
+	
+	// Check when input is an image that's too small
+	printf("Small Image Check..\n");
+	temp_int = system(SOBEL_CMD" -img="INPUT_IMG_FOLDER TOO_SMALL_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
+	if(temp_int == EXIT_IMG_SZ)
+	{
+		printf("  Sobel Passed!\n");
+		fail_string[SMALL_IMG][0] = 0; // Explicity set fail string to empty
+		temp_bool = true;
+	}
+	else
+	{
+		printf("  Sobel Failed!\n");
+		test_passed[SMALL_IMG] = false;
+		sprintf(fail_string[SMALL_IMG], "Sobel returned code %d. ", temp_int);
+	}
+	temp_int = system(PYR_CMD" -img="INPUT_IMG_FOLDER TOO_SMALL_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
+	if(temp_int == EXIT_IMG_SZ)
+	{
+		printf("  Pyramidal Passed!\n");
+		temp_bool = true;
+	}
+	else
+	{
+		printf("  Pyramidal Failed!\n");
+		test_passed[SMALL_IMG] = false;
+		sprintf(&fail_string[SMALL_IMG][strnlen(fail_string[SMALL_IMG],23)], "Pyramidal returned code %d. ", temp_int);
+	}
+	temp_int = system(HOUGH_CMD" -img="INPUT_IMG_FOLDER TOO_SMALL_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
+	if(temp_int == EXIT_IMG_SZ)
+	{
+		printf("  Hough Passed!\n");
+		temp_bool = true;
+	}
+	else
+	{
+		printf("  Hough Failed!\n");
+		test_passed[SMALL_IMG] = false;
+		sprintf(&fail_string[SMALL_IMG][strnlen(fail_string[SMALL_IMG],50)], "Hough returned code %d. ", temp_int);
+	}
 	
 	printf("Original image check..\n");
 	if((temp_int = compare_ppm(INPUT_IMG_FOLDER MED_INPUT_IMG, copy_file, NULL) ) > 0)
