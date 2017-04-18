@@ -433,6 +433,11 @@ int main(int argc, char* argv[])
 #ifdef DEBUG
 	printf("DEBUG: Begin Program. \n");
 #endif
+	
+	// Initialize CUDA
+	if(!InitCUDA()) {
+		exit(0);
+	};
 
 	// Read Input image
 	printf("Reading input image...");

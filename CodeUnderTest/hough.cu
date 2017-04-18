@@ -75,6 +75,49 @@ std::string imageFilename = DEFAULT_IMAGE;
 double elap_time_d; // in ms
 
 //***************************************************************//
+// Initialize CUDA hardware
+//***************************************************************//
+#if __DEVICE_EMULATION__
+	bool InitCUDA(void){
+		fprintf(stderr, "There is no device.\n");
+		return true;
+	}
+#else
+	bool InitCUDA(void)
+	{
+		int count = 0;
+		int i = 0;
+		
+		cudaGetDeviceCount(&count);
+		if(count == 0) {
+			fprintf(stderr, "There is no device.\n");
+			return false;
+		}
+		
+		for(i = 0; i < count; i++) 
+		{
+			cudaDeviceProp prop;
+			if(cudaGetDeviceProperties(&prop, i) == cudaSuccess) 
+			{
+				if(prop.major >= 1)
+				break;
+			}
+		}
+		
+		if(i == count) 
+		{
+			fprintf(stderr, "There is no device supporting CUDA.\n");
+			return false;
+		}
+		
+		cudaSetDevice(i);
+		
+		printf("CUDA initialized.\n");
+		return true;
+	}
+#endif
+
+//***************************************************************//
 // Take the difference of two timespec structures
 //***************************************************************//
 void timespec_diff(struct timespec *start, struct timespec *stop,
@@ -288,6 +331,11 @@ int main(int argc, char* argv[])
 #ifdef DEBUG
 	printf("DEBUG: Begin Program. \n");
 #endif	
+	
+	// Initialize CUDA
+	if(!InitCUDA()) {
+		exit(0);
+	};
 	
 	// Read Input image
 	printf("Reading input image...");
