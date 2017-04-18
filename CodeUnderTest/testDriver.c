@@ -5,38 +5,53 @@
 /// Function and feature requirements:	///////////////////////////////////////////////////
 // R001 - 	The software shall be capable of transforming any input ppm image utilizing a 
 // 			standard Sobel transform.
+//			SOBEL_OUTPUT test
 // R002 - 	The software shall be capable of transforming any input ppm image utilizing a 
 //			standard Hough transform. 
+//			HOUGH_OUTPUT test
 // R003 - 	The software shall be capable of transforming any input ppm image utilizing a 
 //			standard Pyramidal down- and up-conversion transform.
+//			PYRUP_OUTPUT and PYRDWN_OUTPUT test
 // R004 - 	The software shall be capable of transforming any command-line specified ppm 
 //			image of the aspect ratio 16:9 within the bounds of R009.
+//			
 // R005 - 	The software shall be capable of transforming the input image using any one of 
 //			the included transforms as specified by a command line argument.
+//			
 /// Performance Requirements	////////////////////////////////////////////////////////////
 // R006 - 	The software shall be capable of performing a Sobel transform on the equivalent
 //			of 100M pixels per second (e.g. transform 48.225 1920x1080, 2.07M px, images per
 //			second) in continuous mode. 
+//			SOBEL_PERF test
 // R007 - 	The software shall be capable of performing a Pyramidal transform (up and then 
 //			back down conversion) on the equivalent of 50M pixels per second (e.g. transform 
 //			24.113 1920x1080, 2.07M px, images per second) in continuous mode.
+//			PYR_PERF test
 // R008 - 	The software shall be capable of performing a Hough Transform on the equivalent 
 //			of 2M pixels per second (e.g. transform 2.170 1280x720, 921k px, images per 
 //			second) in continuous mode.
+//			HOUGH_PERF test
 // R009 - 	The software shall be capable of transforming images of greater than 100k px 
 //			(240p low-def) and less than 8.29M px (4K ultra-high-def).
+//			
 // R010 - 	The software shall not cause the use of more storage than that which is required 
 //			to store the input image(s) and a single output image(s).
+//			
 /// Error Handling, Recovery and/or Ease of Use Requirements	////////////////////////////
 // R011 - 	The software shall be capable of receiving any input arguments without stopping
 //			proper execution.
+//			
 // R012 - 	The software shall notify the user if an input image cannot be found and stop 
 //			execution safely.
+//			
 // R013 - 	The software shall notify the user if an input image is an improperly formatted 
 //			file and stop execution safely.
+//			
 // R014 - 	The software shall not begin running continuously without notifying the user of 
 //			a method of stopping execution when desired.
+//			
 // R015 - 	The software shall not modify the input image for any reason.
+//			ORIG_IMG test
 //
 // Because there is not that many requirements and the code is generally quite small this test
 // driver is the only test driver for this project. As such regression testing should include
@@ -59,7 +74,7 @@
 
 #define INPUT_IMG_FOLDER		"../Test_images/"
 
-#define TOO_LARGE_IMG			/*Some huge ppm file*/
+#define TOO_LARGE_IMG			"mount_xl.pgm"
 #define TOO_SMALL_IMG			/*Some tiny ppm file*/
 
 #define MED_INPUT_IMG			"mount_m.pgm"
@@ -100,6 +115,8 @@ enum tests_t {	SOBEL_OUTPUT,
 				SOBEL_PERF,
 				PYR_PERF,
 				HOUGH_PERF,
+			  	LARGE_IMG,
+			  	SMALL_IMG,
 				ORIG_IMG,
 				NUM_TESTS	};
 char test_t_str[][27] = {  "Sobel Output Test",
@@ -109,6 +126,8 @@ char test_t_str[][27] = {  "Sobel Output Test",
 						   "Sobel Performance Test",
 						   "Pyramidal Performance Test",
 						   "Hough Performance Test",
+						   "Large Image Test",
+						   "Small Image Test",
 						   "Original Image Test",
 						   ""};
 
