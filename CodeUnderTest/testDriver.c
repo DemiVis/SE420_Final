@@ -74,8 +74,8 @@
 
 #define INPUT_IMG_FOLDER		"../Test_images/"
 
-#define TOO_LARGE_IMG			"mount_xl.pgm" // TODO: check if this is actually too large of an image
-#define TOO_SMALL_IMG			"mount_xs.pgm" // TODO: check if this is actually too small of an image
+#define TOO_LARGE_IMG			"mount_xxl.pgm" 
+#define TOO_SMALL_IMG			"mount_xs.pgm" 
 
 #define MED_INPUT_IMG			"mount_m.pgm"
 #define MED_INPUT_IMG_HT		(480)
