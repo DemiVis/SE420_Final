@@ -414,7 +414,7 @@ int main()
 	// Check when input is an image that's too large
 	printf("Large Image Check..\n");
 	temp_int = system(SOBEL_CMD" -img="INPUT_IMG_FOLDER TOO_LARGE_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
-	if(temp_int == EXIT_IMG_SZ)
+	if(WEXITSTATUS(temp_int) == EXIT_IMG_SZ)
 	{
 		printf("  Sobel Passed!\n");
 		fail_string[LARGE_IMG][0] = 0; // Explicity set fail string to empty
@@ -427,10 +427,10 @@ int main()
 		sprintf(fail_string[LARGE_IMG], "Sobel returned code %d. ", temp_int);
 	}
 	temp_int = system(PYR_CMD" -img="INPUT_IMG_FOLDER TOO_LARGE_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
-	if(temp_int == EXIT_IMG_SZ)
+	if(WEXITSTATUS(temp_int) == EXIT_IMG_SZ)
 	{
 		printf("  Pyramidal Passed!\n");
-		temp_bool = true;
+		temp_bool &= true;
 	}
 	else
 	{
@@ -439,14 +439,14 @@ int main()
 		sprintf(&fail_string[LARGE_IMG][strnlen(fail_string[LARGE_IMG],23)], "Pyramidal returned code %d. ", temp_int);
 	}
 	temp_int = system(HOUGH_CMD" -img="INPUT_IMG_FOLDER TOO_LARGE_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
-	if(temp_int == EXIT_IMG_SZ)
+	if(WEXITSTATUS(temp_int) == EXIT_IMG_SZ)
 	{
-		printf("  Hough Passed!\n");
-		temp_bool = true;
+		printf("  Hough Passed!");
+		temp_bool &= true;
 	}
 	else
 	{
-		printf("  Hough Failed!\n");
+		printf("  Hough Failed!");
 		test_passed[LARGE_IMG] = false;
 		sprintf(&fail_string[LARGE_IMG][strnlen(fail_string[LARGE_IMG],50)], "Hough returned code %d. ", temp_int);
 	}
@@ -454,11 +454,12 @@ int main()
 	// Check when input is an image that's too small
 	printf("Small Image Check..\n");
 	temp_int = system(SOBEL_CMD" -img="INPUT_IMG_FOLDER TOO_SMALL_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
-	if(temp_int == EXIT_IMG_SZ)
+	
+	if(WEXITSTATUS(temp_int) == EXIT_IMG_SZ)
 	{
 		printf("  Sobel Passed!\n");
 		fail_string[SMALL_IMG][0] = 0; // Explicity set fail string to empty
-		temp_bool = true;
+		temp_bool &= true;
 	}
 	else
 	{
@@ -467,29 +468,33 @@ int main()
 		sprintf(fail_string[SMALL_IMG], "Sobel returned code %d. ", temp_int);
 	}
 	temp_int = system(PYR_CMD" -img="INPUT_IMG_FOLDER TOO_SMALL_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
-	if(temp_int == EXIT_IMG_SZ)
+	if(WEXITSTATUS(temp_int) == EXIT_IMG_SZ)
 	{
 		printf("  Pyramidal Passed!\n");
-		temp_bool = true;
+		temp_bool &= true;
 	}
 	else
 	{
 		printf("  Pyramidal Failed!\n");
 		test_passed[SMALL_IMG] = false;
-		sprintf(&fail_string[SMALL_IMG][strnlen(fail_string[SMALL_IMG],23)], "Pyramidal returned code %d. ", temp_int);
+		sprintf(&fail_string[SMALL_IMG][strnlen(fail_string[SMALL_IMG],25)], "Pyramidal returned code %d. ", temp_int);
 	}
 	temp_int = system(HOUGH_CMD" -img="INPUT_IMG_FOLDER TOO_SMALL_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
-	if(temp_int == EXIT_IMG_SZ)
+	if(WEXITSTATUS(temp_int) == EXIT_IMG_SZ)
 	{
-		printf("  Hough Passed!\n");
-		temp_bool = true;
+		printf("  Hough Passed!");
+		temp_bool &= true;
 	}
 	else
 	{
-		printf("  Hough Failed!\n");
+		printf("  Hough Failed!");
 		test_passed[SMALL_IMG] = false;
-		sprintf(&fail_string[SMALL_IMG][strnlen(fail_string[SMALL_IMG],50)], "Hough returned code %d. ", temp_int);
+		sprintf(&fail_string[SMALL_IMG][strnlen(fail_string[SMALL_IMG],54)], "Hough returned code %d. ", temp_int);
 	}
+	if(temp_bool)
+		printf("\t\tR009 PASSED\n");
+	else
+		printf("\t\tR009 FAILED\n");
 	
 	printf("Original image check..\n");
 	if((temp_int = compare_ppm(INPUT_IMG_FOLDER MED_INPUT_IMG, copy_file, NULL) ) > 0)

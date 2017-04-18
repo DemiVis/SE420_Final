@@ -47,6 +47,8 @@
 #define MAXRGB	 	255
 #define BLOCK_SIZE 	8
 #define DEFAULT_IMAGE "beach.pgm"
+#define MAX_IMG_SZ		8290000 // px
+#define MIN_IMG_SZ		100000	// px
 
 // Return Codes
 #define EXIT_SUCCESS				0
@@ -54,6 +56,7 @@
 #define EXIT_IMG_SZ					1
 #define EXIT_IN_IMG_NOT_FOUND		2
 #define EXIT_IN_IMG_FORMATTING		3
+#define EXIT_CUDA_ERR				4
 
 //#define DEBUG
 
@@ -443,7 +446,7 @@ int main(int argc, char* argv[])
 	
 	// Initialize CUDA
 	if(!InitCUDA()) {
-		exit(0);
+		exit(EXIT_CUDA_ERR);
 	};
 	
 	// Read Input image
@@ -452,7 +455,14 @@ int main(int argc, char* argv[])
 	if(!rv) 
 	{
 		printf("error reading file.\n"); 
-		exit(-1); 
+		exit(EXIT_IN_IMG_FORMATTING); 
+	}
+		
+	// Check image size
+	if(img_width * img_height > MAX_IMG_SZ || img_width * img_height < MIN_IMG_SZ)
+	{
+		printf("Input image is too large or too small.\n");
+		exit(EXIT_IMG_SZ);
 	}
 	
 	h_img_in_array = (unsigned char *)malloc(sizeof(unsigned int) * img_width * img_height);
