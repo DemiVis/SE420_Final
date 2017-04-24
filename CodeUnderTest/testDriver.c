@@ -158,23 +158,23 @@ void clear_outputs(void)
 // Only works for medium image sized pgm images
 int compare_ppm(const char * img1_filename, const char * img2_filename, const char *diff_filename)
 {
-	unsigned char img1[MED_INPUT_IMG_SZ], img2[MED_INPUT_IMG_SZ], diff[MED_INPUT_IMG_SZ];
+	unsigned char * img1, * img2, * diff;
 	char temp[512];
 	int tempInt;
-	unsigned tempUnsigned;
+	unsigned int img1Height, img1Width, img1Chan, img2Height, img2Width, img2Chan;;
 	int rv = 1;
 	
-	// Read input files
-	if( readppm(img1, &tempInt, temp, &tempInt, &tempUnsigned, &tempUnsigned, &tempUnsigned,
-             (char *)img1_filename) != true)
+	// Get the image properties
+	rv = parse_ppm_header(img1_filename, &img1Width, &img1Height, &img1Chan);
+	if(!rv) 
 	{
 #ifdef DEBUG
 		printf("error reading ppm 1 for comparison\n");
 #endif
 		return -1;
 	}
-	if( readppm(img2, &tempInt, temp, &tempInt, &tempUnsigned, &tempUnsigned, &tempUnsigned,
-             (char *)img2_filename) != true)
+	rv = parse_ppm_header(img2_filename, &img2Width, &img2Height, &img2Chan);
+	if(!rv) 
 	{
 #ifdef DEBUG
 		printf("error reading ppm 2 for comparison\n");
@@ -182,8 +182,26 @@ int compare_ppm(const char * img1_filename, const char * img2_filename, const ch
 		return -2;
 	}
 	
+	// make sure the images are the same dimensions for comparison
+	if(img1Height != img2Width || img1Width != img2Width || img1Chan != img2Chan)
+	{
+		return -3;
+	}
+	
+	// allocate memoory for the images
+	img1 = (unsigned char *)malloc(img1Width * img1Height * img1Chan);
+	img2 = (unsigned char *)malloc(img1Width * img1Height * img1Chan);
+	diff = (unsigned char *)malloc(img1Width * img1Height * img1Chan);
+	
+	// Read input files
+	readppm(img1, &tempInt, temp, &tempInt, &img1Height, &img1Width, &img1Chan,
+             (char *)img1_filename);
+
+	readppm(img2, &tempInt, temp, &tempInt, &img2Height, &img2Width, &img2Chan,
+             (char *)img2_filename);
+	
 	// Do the comparison
-	for(int i = 0; i < MED_INPUT_IMG_SZ; i++)
+	for(unsigned i = 0; i < (img1Width * img1Height * img1Chan); i++)
 	{
 		if(img1[i] != img2[i])
 		{
@@ -197,6 +215,9 @@ int compare_ppm(const char * img1_filename, const char * img2_filename, const ch
 	// Dump diff pgm if desired
 	if(diff_filename != NULL)
 		dump_ppm_data(diff_filename, MED_INPUT_IMG_WT, MED_INPUT_IMG_HT, 1, diff);
+	
+	// free allocated memory
+	free((void *)img1); free((void *)img2); free((void *)diff);
 	
 	return rv;
 }
@@ -250,7 +271,7 @@ int main()
 	// Save off input image original
 	sprintf(copy_file, "%s", INPUT_IMG_FOLDER MED_INPUT_IMG);
 	strncpy(tempStr, &copy_file[strnlen(copy_file, 25)-3], 4); // copy just file extension
-	copy_file[strnlen(copy_file, 64)-3] = 0; // Terminate string without extension
+	copy_file[strnlen(copy_file, 64)-4] = 0; // Terminate string without extension
 	strncat(copy_file, "_orignal", 8); // add original to end of filename
 	strncat(copy_file, tempStr, 4); // put extension back on
 	copy_ppm(INPUT_IMG_FOLDER MED_INPUT_IMG, copy_file);
@@ -279,6 +300,8 @@ int main()
 			sprintf(fail_string[SOBEL_OUTPUT],"could not open the transform output");
 		else if(temp_int == -2)
 			sprintf(fail_string[SOBEL_OUTPUT],"could not open expected output");
+		else if(temp_int == -3)
+			sprintf(fail_string[SOBEL_OUTPUT],"comparison images are different sizes");
 	}
 	
 	// Run Hough Transform - R002
@@ -301,6 +324,8 @@ int main()
 			sprintf(fail_string[HOUGH_OUTPUT],"could not open the transform output");
 		else if(temp_int == -2)
 			sprintf(fail_string[HOUGH_OUTPUT],"could not open expected output");
+		else if(temp_int == -3)
+			sprintf(fail_string[HOUGH_OUTPUT],"comparison images are different sizes");
 	}
 	
 	// Run Pyramidal Transform - R003
@@ -323,6 +348,8 @@ int main()
 			sprintf(fail_string[PYRUP_OUTPUT],"could not open the transform output");
 		else if(temp_int == -2)
 			sprintf(fail_string[PYRUP_OUTPUT],"could not open expected output");
+		else if(temp_int == -3)
+			sprintf(fail_string[PYRUP_OUTPUT],"comparison images are different sizes");
 	}
 	if( (temp_int = compare_ppm(PYRDWN_OUT, MED_INPUT_IMG_PYRDWN, "prydwn_diff.pgm") ) > 0)
 	{
@@ -342,6 +369,8 @@ int main()
 			sprintf(fail_string[PYRDWN_OUTPUT],"could not open the transform output");
 		else if(temp_int == -2)
 			sprintf(fail_string[PYRDWN_OUTPUT],"could not open expected output");
+		else if(temp_int == -3)
+			sprintf(fail_string[PYRDWN_OUTPUT],"comparison images are different sizes");
 	}
 	
 	//// Performance Testing Section
@@ -515,6 +544,8 @@ int main()
 			sprintf(fail_string[ORIG_IMG],"could not open the input image");
 		else if(temp_int == -2)
 			sprintf(fail_string[ORIG_IMG],"could not open the original copy");
+		else if(temp_int == -3)
+			sprintf(fail_string[ORIG_IMG],"comparison images are different sizes");
 	}
 	
 	// Wrap it up
