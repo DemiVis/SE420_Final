@@ -59,7 +59,7 @@
 
 #define TIMING_FILE	"hough_timing.txt"
 
-// Kernels (in houghKernels.cu)
+// Kernels (in hough_kernel.cu)
 __global__ void sobel(u_char * frame_in, u_char * frame_out, int width, int height);
 __global__ void houghTransform(u_char * frame_in, u_char * frame_out, const int hough_h);
 

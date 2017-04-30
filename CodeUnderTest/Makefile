@@ -9,9 +9,9 @@ all: options.o hough pyramid sobel test_benchmarks
 options.o:
 	sudo ${CXX} -c -lpthread options.cpp ppm.cpp -I./
 
-hough: hough.cu houghKernels.cu 
+hough: hough.cu hough_kernel.cu 
 	### BUILDING HOUGH BENCHMARK ###
-	nvcc $@.cu houghKernels.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS}
+	nvcc $@.cu hough_kernel.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS}
 	
 pyramid: pyramid.cu pyramid_kernel.cu
 	### BUILDING PYRAMIDAL BENCHMARK ###

@@ -1,5 +1,5 @@
 //*****************************************************************************************//
-//  houghKernels.cu - CUDA Hough Transform Benchmark
+//  hough_kernel.cu - CUDA Hough Transform Benchmark
 //
 //  Authors: Ramnarayan Krishnamurthy, University of Colorado (Shreyas.Ramnarayan@gmail.com)
 //	         Matthew Demi Vis, Embry-Riddle Aeronautical University (MatthewVis@gmail.com)
