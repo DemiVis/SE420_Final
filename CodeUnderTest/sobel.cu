@@ -44,7 +44,6 @@
 #include "options.h"
 
 // Project Specific Defines
-#define MAXRGB	 	255
 #define BLOCK_SIZE 	8
 #define DEFAULT_IMAGE "beach.pgm"
 #define MAX_IMG_SZ		8290000 // px
@@ -61,6 +60,10 @@
 //#define DEBUG
 
 #define TIMING_FILE	"sobel_timing.txt"
+
+// Kernels (in sobel_kernel.cu)
+__global__ void CUDA_transform(unsigned char *img_out, unsigned char *img_in, unsigned int width, unsigned int height);
+extern void CPU_transform(unsigned char *img_out, unsigned char *img_in, unsigned int width, unsigned int height);
 
 // Global variables for RT threads
 pthread_attr_t rt_sched_attr;
@@ -120,68 +123,6 @@ double elap_time_d;
 		return true;
 	}
 #endif
-
-//***************************************************************//
-// Sobel transform using CUDA hardware
-//***************************************************************//
-__global__ void CUDA_transform(unsigned char *img_out, unsigned char *img_in, unsigned int width, unsigned int height){
-	int x,y;
-	unsigned char LUp,LCnt,LDw,RUp,RCnt,RDw;
-	int pixel;
-	
-	x=blockDim.x*blockIdx.x+threadIdx.x;
-	y=blockDim.y*blockIdx.y+threadIdx.y;
-	
-	if( x<width && y<height )
-	{
-		LUp = (x-1>=0 && y-1>=0) ? img_in[(x-1)+(y-1)*width] : 0;
-		LCnt= (x-1>=0)           ? img_in[(x-1)+y*width]:0;
-		LDw = (x-1>=0 && y+1<height) ? img_in[(x-1)+(y+1)*width] : 0;
-		RUp = (x+1<width && y-1>=0)  ? img_in[(x+1)+(y-1)*width] : 0;
-		RCnt= (x+1<width)            ? img_in[(x+1)+y*width] : 0;
-		RDw = (x+1<width && y+1<height) ? img_in[(x+1)+(y+1)*width] : 0;
-		pixel = -1*LUp  + 1*RUp +
-		-2*LCnt + 2*RCnt +
-		-1*LDw  + 1*RDw;
-		pixel = (pixel<0) ? 0 : pixel;
-		pixel = (pixel>MAXRGB) ? MAXRGB : pixel;
-		img_out[x+y*width] = pixel;
-	}
-}
-
-//***************************************************************//
-// Sobel transform using the CPU
-//***************************************************************//
-void CPU_transform(unsigned char *img_out, unsigned char *img_in, unsigned int width, unsigned int height) {
-	unsigned char LUp,LCnt,LDw,RUp,RCnt,RDw;
-	int pixel;
-	for(int y=0; y<height; y++)
-	{
-		for(int x=0; x<width; x++)
-		{
-			#ifdef DEBUG
-				printf("Pixel X:%d Y:%d\n",x,y);
-			#endif
-			assert(x+(y*width)<width*height);
-			LUp = (x-1>=0 && y-1>=0)? img_in[(x-1)+(y-1)*width]:0;
-			LCnt= (x-1>=0)? img_in[(x-1)+y*width]:0;
-			LDw = (x-1>=0 && y+1<height)? img_in[(x-1)+(y+1)*width]:0;
-			RUp = (x+1<width && y-1>=0)? img_in[(x+1)+(y-1)*width]:0;
-			RCnt= (x+1<width)? img_in[(x+1)+y*width]:0;
-			RDw = (x+1<width && y+1<height)? img_in[(x+1)+(y+1)*width]:0;
-			pixel = -1*LUp  + 1*RUp + -2*LCnt + 2*RCnt + -1*LDw  + 1*RDw;
-			pixel=(pixel<0)?0:pixel;
-			pixel=(pixel>MAXRGB)?MAXRGB:pixel;
-			img_out[x+y*width]=pixel;
-			#ifdef DEBUG
-				printf("\r%5.2f",100*(float)(y*width+x)/(float)(width*height-1));            
-			#endif
-		}
-	}
-#ifdef DEBUG
-	printf("\n");
-#endif
-}
 
 //***************************************************************//
 // Take the difference of two timespec structures

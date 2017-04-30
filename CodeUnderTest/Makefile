@@ -17,9 +17,9 @@ pyramid: pyramid.cu pyramid_kernel.cu
 	### BUILDING PYRAMIDAL BENCHMARK ###
 	nvcc $@.cu pyramid_kernel.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS}
 	
-sobel: sobel.cu
+sobel: sobel.cu sobel_kernel.cu
 	### BUILDING SOBEL BENCHMARK ###
-	nvcc $@.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS}
+	nvcc $@.cu sobel_kernel.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS}
 
 test_benchmarks: testDriver.o
 	### BUILDING TEST DRIVER ###
