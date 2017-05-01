@@ -1,4 +1,7 @@
-TRANSFORM BENCHMARK REGRESSION TEST RELEASE NOTES
+
+###############################################################
+#####  TRANSFORM BENCHMARK REGRESSION TEST RELEASE NOTES  #####
+###############################################################
 
 ABOUT ---------------------------------------------------------------------------------------------
 
@@ -40,7 +43,7 @@ REQUIREMENTS FOR USE -----------------------------------------------------------
 	
 Software:
 	Ubuntu version 14.04LTS or newer
-	GCC version 5.4.0 or newer
+	GCC version 5.4.0 or newerIn
 	NVCC version 8.0 or newer
 	lcov versions 1.12 or newer (if using code coverage features)
 	MATLAB
@@ -125,9 +128,10 @@ followed after the steps above are complete:
 
 KNOWN DEFICIENCIES --------------------------------------------------------------------------------
 
-1. Sobel Output is incorrect
-	the output from the Sobel transform is not a proper sobel output. Instead of drawing lines it
-	shades the image with what could be edges. Should be replaced with other sobel transform.
+1. Transform outputs do not match created "truth"
+	Output from transforms does not match truth from MATLAB create truth script. This is due to
+	inconsistencies between the implementations in MATLAB (cannot access source code) and the 
+	transforms. See diff images.
 	
 2. PGM/PPM files that do not have comments can be problematic
 	Input PGM/PPM files that do not have a comment line cannot be reliably read and as such all

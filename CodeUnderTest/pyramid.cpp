@@ -492,7 +492,7 @@ int main(int argc, char* argv[])
 	rt_param.sched_priority=rt_max_prio-1;
 	pthread_attr_setschedparam(&rt_sched_attr, &rt_param);
 
-	if (freq) 
+	if (freq) // if equal to zero than run as fast as possible
 		run_time.tv_nsec = (NS_PER_SEC/freq);
 	else 
 		run_time.tv_nsec = 0;
