@@ -115,7 +115,7 @@
 #define EXIT_IN_IMG_NOT_FOUND		2
 #define EXIT_IN_IMG_FORMATTING		3
 
-#define DEBUG
+//#define DEBUG
 
 enum tests_t {	SOBEL_OUTPUT,
 				HOUGH_OUTPUT,
@@ -577,6 +577,6 @@ int main()
 	else
 		printf("All tests passed. Full regression test PASSED.\n");
 	
-	printf("##### End Benchmark Transform Regression Testing! #####\n");
+	printf("##### End Benchmark Transform Regression Testing! #####\n\n");
 }
 	

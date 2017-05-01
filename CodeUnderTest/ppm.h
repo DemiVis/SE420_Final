@@ -12,7 +12,7 @@
 //	Ultraspectral Imagery XXII, Baltimore, Maryland, April 2016. 
 //
 //	This code was developed for, tested and run on a Jetson TK1 development kit by NVIDIA
-//  running TODO. 
+//  running Ubuntu 14.04. 
 //	
 //	Please use at your own risk. We are sharing so that other researchers and developers can 
 //	recreate our results and make suggestions to improve and extend the benchmarks over time.
