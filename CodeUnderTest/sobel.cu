@@ -59,9 +59,11 @@
 //#define DEBUG
 
 #define TIMING_FILE	"sobel_timing.txt"
+#define NS_PER_SEC	1000000000
+#define MS_PER_SEC	1000000
 
 // Kernels (in sobel_kernel.cu)
-__global__ void CUDA_transform(unsigned char *img_out, unsigned char *img_in, unsigned int width, unsigned int height);
+__global__ void sobel_transform(unsigned char *img_out, unsigned char *img_in, unsigned int width, unsigned int height);
 extern void CPU_transform(unsigned char *img_out, unsigned char *img_in, unsigned int width, unsigned int height);
 
 // Global variables for RT threads
@@ -84,43 +86,44 @@ double elap_time_d;
 // Initialize CUDA hardware
 //***************************************************************//
 #if __DEVICE_EMULATION__
-	bool InitCUDA(void){
-		fprintf(stderr, "There is no device.\n");
-		return true;
-	}
+bool InitCUDA(void)
+{
+	fprintf(stderr, "There is no device.\n");
+	return true;
+}
 #else
-	bool InitCUDA(void)
-	{
-		int count = 0;
-		int i = 0;
-		
-		cudaGetDeviceCount(&count);
-		if(count == 0) {
-			fprintf(stderr, "There is no device.\n");
-			return false;
-		}
-		
-		for(i = 0; i < count; i++) 
-		{
-			cudaDeviceProp prop;
-			if(cudaGetDeviceProperties(&prop, i) == cudaSuccess) 
-			{
-				if(prop.major >= 1)
-				break;
-			}
-		}
-		
-		if(i == count) 
-		{
-			fprintf(stderr, "There is no device supporting CUDA.\n");
-			return false;
-		}
-		
-		cudaSetDevice(i);
-		
-		printf("CUDA initialized.\n");
-		return true;
+bool InitCUDA(void)
+{
+	int count = 0;
+	int i = 0;
+
+	cudaGetDeviceCount(&count);
+	if(count == 0) {
+		fprintf(stderr, "There is no device.\n");
+		return false;
 	}
+
+	for(i = 0; i < count; i++) 
+	{
+		cudaDeviceProp prop;
+		if(cudaGetDeviceProperties(&prop, i) == cudaSuccess) 
+		{
+			if(prop.major >= 1)
+			break;
+		}
+	}
+
+	if(i == count) 
+	{
+		fprintf(stderr, "There is no device supporting CUDA.\n");
+		return false;
+	}
+
+	cudaSetDevice(i);
+
+	printf("CUDA initialized.\n");
+	return true;
+}
 #endif
 
 //***************************************************************//
@@ -134,7 +137,7 @@ struct timespec *result, bool check_neg)
 	
 	if ( check_neg && result->tv_nsec < 0) {
 		result->tv_sec = result->tv_sec - 1;
-		result->tv_nsec = result->tv_nsec + 1000000000;
+		result->tv_nsec = result->tv_nsec + NS_PER_SEC;
 		
 	}
 }
@@ -145,7 +148,7 @@ struct timespec *result, bool check_neg)
 double timespec2double( struct timespec time_in)
 {
 	double rv;
-	rv = (((double)time_in.tv_sec)*1000)+(((double)time_in.tv_nsec)/1000000);
+	rv = (((double)time_in.tv_sec)*1000)+(((double)time_in.tv_nsec)/MS_PER_SEC);
 	return rv;
 }
 
@@ -184,7 +187,7 @@ void *CUDA_transform_thread(void * threadp)
 		cudaMemcpy(d_img_in_array, h_img_in_array, sizeof(unsigned char)*img_width*img_height, cudaMemcpyHostToDevice);
 		
 		// Complete the Sobel Transform
-		CUDA_transform<<<grid, threads, 0>>>(d_img_out_array, d_img_in_array, img_width, img_height);
+		sobel_transform<<<grid, threads, 0>>>(d_img_out_array, d_img_in_array, img_width, img_height);
 		cudaThreadSynchronize();
 		
 		// Copy the transformed image back from the CUDA memory 
@@ -431,7 +434,7 @@ int main(int argc, char* argv[])
 	pthread_attr_setschedparam(&rt_sched_attr, &rt_param);
 	
 	if (freq) {
-		run_time.tv_nsec = (1000000000/freq);
+		run_time.tv_nsec = (NS_PER_SEC/freq);
 		} else {
 		run_time.tv_nsec = 0;
 	}

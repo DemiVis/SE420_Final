@@ -26,7 +26,8 @@
 //***************************************************************//
 // Sobel transform using CUDA hardware
 //***************************************************************//
-__global__ void CUDA_transform(unsigned char *img_out, unsigned char *img_in, unsigned int width, unsigned int height){
+__global__ void sobel_transform(unsigned char *img_out, unsigned char *img_in, unsigned int width, unsigned int height)
+{
 	int x,y;
 	unsigned char LUp,LCnt,LDw,RUp,RCnt,RDw;
 	int pixel;
@@ -54,7 +55,8 @@ __global__ void CUDA_transform(unsigned char *img_out, unsigned char *img_in, un
 //***************************************************************//
 // Sobel transform using the CPU
 //***************************************************************//
-void CPU_transform(unsigned char *img_out, unsigned char *img_in, unsigned int width, unsigned int height) {
+void CPU_transform(unsigned char *img_out, unsigned char *img_in, unsigned int width, unsigned int height) 
+{
 	unsigned char LUp,LCnt,LDw,RUp,RCnt,RDw;
 	int pixel;
 	for(int y=0; y<height; y++)

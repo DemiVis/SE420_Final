@@ -65,6 +65,8 @@
 //#define DEBUG
 
 #define TIMING_FILE		"pyr_timing.txt"
+#define NS_PER_SEC	1000000000
+#define MS_PER_SEC	1000000
 
 // Kernels (in pyramid_kernel.cu)
 __global__ void PyrDown(unsigned char *g_DataIn, unsigned char *g_DataOut, int width, int height);
@@ -101,7 +103,8 @@ double elap_time_d;
 // Initialize CUDA 
 //***************************************************************//
 #if __DEVICE_EMULATION__
-bool InitCUDA(void){
+bool InitCUDA(void)
+{
 	fprintf(stderr, "There is no device.\n");
 	return true;
 }
@@ -151,7 +154,7 @@ void timespec_diff(struct timespec *start, struct timespec *stop,
 
     if ( check_neg && result->tv_nsec < 0) {
         result->tv_sec = result->tv_sec - 1;
-        result->tv_nsec = result->tv_nsec + 1000000000;
+        result->tv_nsec = result->tv_nsec + NS_PER_SEC;
 
     }
 }
@@ -162,7 +165,7 @@ void timespec_diff(struct timespec *start, struct timespec *stop,
 double timespec2double( struct timespec time_in)
 {
 	double rv;
-	rv = (((double)time_in.tv_sec)*1000)+(((double)time_in.tv_nsec)/1000000);
+	rv = (((double)time_in.tv_sec)*1000)+(((double)time_in.tv_nsec)/MS_PER_SEC);
 	return rv;
 }
 
@@ -490,7 +493,7 @@ int main(int argc, char* argv[])
 	pthread_attr_setschedparam(&rt_sched_attr, &rt_param);
 
 	if (freq) 
-		run_time.tv_nsec = (1000000000/freq);
+		run_time.tv_nsec = (NS_PER_SEC/freq);
 	else 
 		run_time.tv_nsec = 0;
 

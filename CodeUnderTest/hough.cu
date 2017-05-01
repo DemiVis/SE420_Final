@@ -58,6 +58,8 @@
 //#define DEBUG  
 
 #define TIMING_FILE	"hough_timing.txt"
+#define NS_PER_SEC	1000000000
+#define MS_PER_SEC	1000000
 
 // Kernels (in hough_kernel.cu)
 __global__ void sobel(u_char * frame_in, u_char * frame_out, int width, int height);
@@ -88,43 +90,44 @@ double elap_time_d; // in ms
 // Initialize CUDA hardware
 //***************************************************************//
 #if __DEVICE_EMULATION__
-	bool InitCUDA(void){
-		fprintf(stderr, "There is no device.\n");
-		return true;
-	}
+bool InitCUDA(void)
+{
+	fprintf(stderr, "There is no device.\n");
+	return true;
+}
 #else
-	bool InitCUDA(void)
-	{
-		int count = 0;
-		int i = 0;
-		
-		cudaGetDeviceCount(&count);
-		if(count == 0) {
-			fprintf(stderr, "There is no device.\n");
-			return false;
-		}
-		
-		for(i = 0; i < count; i++) 
-		{
-			cudaDeviceProp prop;
-			if(cudaGetDeviceProperties(&prop, i) == cudaSuccess) 
-			{
-				if(prop.major >= 1)
-				break;
-			}
-		}
-		
-		if(i == count) 
-		{
-			fprintf(stderr, "There is no device supporting CUDA.\n");
-			return false;
-		}
-		
-		cudaSetDevice(i);
-		
-		printf("CUDA initialized.\n");
-		return true;
+bool InitCUDA(void)
+{
+	int count = 0;
+	int i = 0;
+
+	cudaGetDeviceCount(&count);
+	if(count == 0) {
+		fprintf(stderr, "There is no device.\n");
+		return false;
 	}
+
+	for(i = 0; i < count; i++) 
+	{
+		cudaDeviceProp prop;
+		if(cudaGetDeviceProperties(&prop, i) == cudaSuccess) 
+		{
+			if(prop.major >= 1)
+			break;
+		}
+	}
+
+	if(i == count) 
+	{
+		fprintf(stderr, "There is no device supporting CUDA.\n");
+		return false;
+	}
+
+	cudaSetDevice(i);
+
+	printf("CUDA initialized.\n");
+	return true;
+}
 #endif
 
 //***************************************************************//
@@ -138,7 +141,7 @@ void timespec_diff(struct timespec *start, struct timespec *stop,
 
     if ( check_neg && result->tv_nsec < 0) {
         result->tv_sec = result->tv_sec - 1;
-        result->tv_nsec = result->tv_nsec + 1000000000;
+        result->tv_nsec = result->tv_nsec + NS_PER_SEC;
 
     }
 }
@@ -149,7 +152,7 @@ void timespec_diff(struct timespec *start, struct timespec *stop,
 double timespec2double( struct timespec time_in)
 {
 	double rv;
-	rv = (((double)time_in.tv_sec)*1000)+(((double)time_in.tv_nsec)/1000000);
+	rv = (((double)time_in.tv_sec)*1000)+(((double)time_in.tv_nsec)/MS_PER_SEC);
 	return rv;
 }
 
@@ -389,7 +392,7 @@ int main(int argc, char* argv[])
 	pthread_attr_setschedparam(&rt_sched_attr, &rt_param);
 
 	if (freq) 
-		run_time.tv_nsec = (1000000000/freq);
+		run_time.tv_nsec = (NS_PER_SEC/freq);
 	else 
 		run_time.tv_nsec = 0;
 

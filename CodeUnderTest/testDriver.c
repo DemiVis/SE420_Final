@@ -55,8 +55,8 @@
 //
 // Because there is not that many requirements and the code is generally quite small this test
 // driver is the only test driver for this project. As such regression testing should include
-// running this test and this test only.
-
+// running this test program and this test program only.
+ 
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
