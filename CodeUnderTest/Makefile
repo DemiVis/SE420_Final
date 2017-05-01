@@ -9,17 +9,17 @@ all: options.o hough pyramid sobel test_benchmarks
 options.o:
 	sudo ${CXX} -c -lpthread options.cpp ppm.cpp -I./
 
-hough: hough.cu hough_kernel.cu 
+hough: hough.cpp hough_kernel.cu 
 	### BUILDING HOUGH BENCHMARK ###
-	nvcc $@.cu hough_kernel.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS} -Xcompiler -ftest-coverage -Xcompiler -fprofile-arcs -Xcompiler --coverage
+	nvcc $@.cpp hough_kernel.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS} -Xcompiler -ftest-coverage -Xcompiler -fprofile-arcs -Xcompiler --coverage
 	
-pyramid: pyramid.cu pyramid_kernel.cu
+pyramid: pyramid.cpp pyramid_kernel.cu
 	### BUILDING PYRAMIDAL BENCHMARK ###
-	nvcc $@.cu pyramid_kernel.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS} -Xcompiler  -ftest-coverage -Xcompiler -fprofile-arcs  -Xcompiler --coverage
+	nvcc $@.cpp pyramid_kernel.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS} -Xcompiler  -ftest-coverage -Xcompiler -fprofile-arcs  -Xcompiler --coverage
 	
-sobel: sobel.cu sobel_kernel.cu
+sobel: sobel.cpp sobel_kernel.cu
 	### BUILDING SOBEL BENCHMARK ###
-	nvcc $@.cu sobel_kernel.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS} -Xcompiler -ftest-coverage -Xcompiler -fprofile-arcs  -Xcompiler --coverage
+	nvcc $@.cpp sobel_kernel.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS} -Xcompiler -ftest-coverage -Xcompiler -fprofile-arcs  -Xcompiler --coverage
 
 test_benchmarks: testDriver.o
 	### BUILDING TEST DRIVER ###
@@ -38,3 +38,4 @@ clean:
 	rm -f pyramid pyrdown.pgm pyrup.pgm
 	rm -f sobel sobel_out.pgm
 	rm -f test_benchmarks sobel_diff.pgm hough_diff.pgm
+	rm -f *.gcda *.gcno

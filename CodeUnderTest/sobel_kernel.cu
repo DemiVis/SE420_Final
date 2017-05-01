@@ -22,6 +22,7 @@
 #include <assert.h>
 
 #define MAXRGB	 	255
+#define THRESHOLD	128
 
 //***************************************************************//
 // Sobel transform using CUDA hardware
@@ -46,10 +47,22 @@ __global__ void sobel_transform(unsigned char *img_out, unsigned char *img_in, u
 		pixel = -1*LUp  + 1*RUp +
 		-2*LCnt + 2*RCnt +
 		-1*LDw  + 1*RDw;
-		pixel = (pixel<0) ? 0 : pixel;
+		pixel = (pixel<THRESHOLD) ? 0 : pixel;
 		pixel = (pixel>MAXRGB) ? MAXRGB : pixel;
+		if(pixel < THRESHOLD)
+			pixel = 0;
+		else
+			pixel = MAXRGB;
 		img_out[x+y*width] = pixel;
 	}
+}
+
+//***************************************************************//
+// simple wrapper to keep cuda code in just the kernel file.
+//***************************************************************//
+void sobel_transform_wrapper(unsigned char *img_out, unsigned char *img_in, unsigned int width, unsigned int height, dim3 grid, dim3 threads)
+{
+	sobel_transform<<<grid, threads, 0>>>(img_out, img_in, width, height);
 }
 
 //***************************************************************//

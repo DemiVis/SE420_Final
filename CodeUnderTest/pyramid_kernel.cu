@@ -11,7 +11,7 @@
 //	Ultraspectral Imagery XXII, Baltimore, Maryland, April 2016. 
 //
 //	This code was developed for, tested and run on a Jetson TK1 development kit by NVIDIA
-//  running TODO. 
+//  running Ubuntu 14.04. 
 //	
 //	Please use at your own risk. We are sharing so that other researchers and developers can 
 //	recreate our results and make suggestions to improve and extend the benchmarks over time.
@@ -132,6 +132,14 @@ __global__ void PyrDown(unsigned char* g_DataIn, unsigned char* g_DataOut, int w
     g_DataOut[out_index] = CLAMP_8bit(sumX/256);
 }
 
+//***************************************************************//
+// simple wrapper to keep cuda code in just the kernel file.
+//***************************************************************//
+void PyrDown(unsigned char *g_DataIn, unsigned char *g_DataOut, int width, int height, dim3 grid, dim3 block)
+{
+	PyrDown<<< grid, block >>>(g_DataIn, g_DataOut, width, height);
+}
+
 /***************************************************************************************************
  * CUDA equivalent of pyrup OpenCV function				  										  **
  * refer: http://docs.opencv.org/2.4/modules/imgproc/doc/filtering.html?highlight=pyrdown#pyrdown **
@@ -228,6 +236,14 @@ __global__ void PyrUp(unsigned char* g_DataIn, unsigned char* g_DataOut, int wid
           }
 	}
     g_DataOut[out_index] = CLAMP_8bit(sumX/64);
+}
+
+//***************************************************************//
+// simple wrapper to keep cuda code in just the kernel file.
+//***************************************************************//
+void PyrUp(unsigned char* g_DataIn, unsigned char* g_DataOut, int width, int height, dim3 grid, dim3 block)
+{
+	PyrUp<<< grid, block >>>(g_DataIn, g_DataOut, width, height);
 }
 
 /***************************************************************************************************

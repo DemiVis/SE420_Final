@@ -11,7 +11,7 @@
 //	Ultraspectral Imagery XXII, Baltimore, Maryland, April 2016. 
 //
 //	This code was developed for, tested and run on a Jetson TK1 development kit by NVIDIA
-//  running Ubuntu 14.04 
+//  running Ubuntu 14.04. 
 //	
 //	Please use at your own risk. We are sharing so that other researchers and developers can 
 //	recreate our results and make suggestions to improve and extend the benchmarks over time.
@@ -69,8 +69,8 @@
 #define MS_PER_SEC	1000000
 
 // Kernels (in pyramid_kernel.cu)
-__global__ void PyrDown(unsigned char *g_DataIn, unsigned char *g_DataOut, int width, int height);
-__global__ void PyrUp(unsigned char* g_DataIn, unsigned char* g_DataOut, int width, int height);
+extern void PyrDown(unsigned char *g_DataIn, unsigned char *g_DataOut, int width, int height, dim3 grid, dim3 block);
+extern void PyrUp(unsigned char* g_DataIn, unsigned char* g_DataOut, int width, int height, dim3 grid, dim3 block);
 extern void CPU_pyrdown(unsigned char* imageIn, unsigned char* imageOut, int width, int height);
 extern void CPU_pyrup(unsigned char* imageIn, unsigned char* imageOut, int width, int height);
 
@@ -219,7 +219,7 @@ void *CUDA_transform_thread(void * threadp)
 #ifdef DEBUG
 		printf("DEBUG: Running pyrdown on input\n");
 #endif
-		PyrDown<<< dimGrid, dimBlock >>>(d_In, d_Down, img_width, img_height);
+		PyrDown(d_In, d_Down, img_width, img_height, dimGrid, dimBlock);
 
 		// Copy the transformed image back from the CUDA memory 
 		cudaMemcpy(pyrdown_image, d_Down, (img_width/2)*(img_height/2)*sizeof(unsigned char), cudaMemcpyDeviceToHost);
@@ -230,9 +230,9 @@ void *CUDA_transform_thread(void * threadp)
 		// Complete the pyrup
 #ifdef DEBUG
 	    printf("DEBUG: Running pyrup on pyrdown result\n");
-#endif
-		PyrUp<<< dimGrid, dimBlock >>>(d_Down, d_Up, img_width, img_height);
-
+#endif		
+		PyrUp(d_Down, d_Up, img_width, img_height, dimGrid, dimBlock);
+		
 	    // Copy image back to host
 	    cudaMemcpy(pyrup_image, d_Up, img_width*img_height*sizeof(unsigned char), cudaMemcpyDeviceToHost);
 
@@ -458,7 +458,7 @@ int main(int argc, char* argv[])
 	if(!rv) 
 	{
 		printf("error reading file.\n"); 
-		exit(EXIT_IN_IMG_FORMATTING); // TODO: be more specific here in all transforms
+		exit(EXIT_IN_IMG_FORMATTING);
 	}
 	
 	// Check image size

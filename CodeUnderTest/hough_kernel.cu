@@ -61,6 +61,15 @@ __global__ void sobel(u_char * frame_in, u_char * frame_out, int width, int heig
     }
 }
 
+//***************************************************************//
+// simple wrapper to keep cuda code in just the kernel file.
+//***************************************************************//
+void sobel_wrapper(u_char * frame_in, u_char * frame_out, int width, int height, dim3 grid, dim3 block)
+{
+	// Complete the Sobel transform to find edges
+	sobel<<<grid,block>>>(frame_in, frame_out,width,height);
+}
+
 __global__ void houghTransform(u_char * frame_in, u_char * frame_out,const int hough_h)
 {
 	int x = blockDim.x*blockIdx.x+threadIdx.x;
@@ -74,7 +83,6 @@ __global__ void houghTransform(u_char * frame_in, u_char * frame_out,const int h
 	double center_x = width/2;
 	double center_y = height/2;   
 
-//	 frame_out[index] = 127;
 	if( frame_in[index] > 250 )			//checking for the values greater than 250, has to be modified if we have different threshold 
 	{
 		for(int t=0;t<180;t++)  
@@ -87,6 +95,14 @@ __global__ void houghTransform(u_char * frame_in, u_char * frame_out,const int h
 		}
 	
 	}
-//   __syncthreads();
+}
+
+//***************************************************************//
+// simple wrapper to keep cuda code in just the kernel file.
+//***************************************************************//
+void houghTransform_wrapper(u_char * frame_in, u_char * frame_out, const int hough_h, dim3 grid, dim3 block)
+{
+	// Complete the Hough transform on the transformed sobel image
+	houghTransform<<<grid,block>>>(frame_in, frame_out, hough_h);
 }
 
