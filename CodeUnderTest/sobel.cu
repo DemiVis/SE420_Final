@@ -28,7 +28,6 @@
 #include <fcntl.h>
 #include <stdint.h>
 #include <errno.h>
-#include <assert.h>
 #include <string.h>
 #include <stdbool.h>
 #include <sys/io.h>

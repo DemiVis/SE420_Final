@@ -28,15 +28,15 @@
 
 #include "ppm.h"
 
-#define DEBUG
+//#define DEBUG
 #define PPM_COMMENT		"# Output SDP Benchmarks"
 
 // RYAN
 bool parse_ppm_header(const char *filename, unsigned int *width, unsigned int *height, unsigned int *channels) {
   FILE *fp = NULL;
-//#ifdef DEBUG
-  printf("opening %s",filename);
-//#endif
+#ifdef DEBUG
+  printf("opening %s\n",filename);
+#endif
 #ifdef _WIN32
   errno_t err;
   if ((err = fopen_s(&fp, filename, "rb")) != 0)

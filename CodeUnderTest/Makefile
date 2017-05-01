@@ -37,4 +37,4 @@ clean:
 	rm -f hough hough.pgm houghOut.pgm sobelOut.pgm 
 	rm -f pyramid pyrdown.pgm pyrup.pgm
 	rm -f sobel sobel_out.pgm
-	rm -f test_benchmarks
+	rm -f test_benchmarks sobel_diff.pgm hough_diff.pgm

@@ -82,8 +82,8 @@
 #define MED_INPUT_IMG_WT		(640)
 #define MED_INPUT_IMG_SZ		(MED_INPUT_IMG_HT * MED_INPUT_IMG_WT)
 #define MED_INPUT_IMG_SOBEL		"sobel_expected.pgm"
-#define MED_INPUT_IMG_PYRUP		"pyrup_expected.pgm"
-#define MED_INPUT_IMG_PYRDWN	"pyrdwn_expected.pgm"
+#define MED_INPUT_IMG_PYRUP		INPUT_IMG_FOLDER MED_INPUT_IMG // Because transforms pyrd down and then back up so should be same.
+#define MED_INPUT_IMG_PYRDWN	"pyrdown_expected.pgm"
 #define MED_INPUT_IMG_HOUGH		"hough_expected.pgm"
 
 #define MAX_PPM_HR_LEN			( 50)
@@ -100,11 +100,13 @@
 #define NO_WAIT					" -nowait"
 #define USE_CUDA				" -cuda"
 
+#define DIFF_THRESHOLD			5
+
 #define US_PER_SEC				1000000.0
 
-#define SOBEL_TIMING_FILE	"sobel_timing.txt"
-#define HOUGH_TIMING_FILE	"hough_timing.txt"
-#define PYR_TIMING_FILE		"pyr_timing.txt"
+#define SOBEL_TIMING_FILE		"sobel_timing.txt"
+#define HOUGH_TIMING_FILE		"hough_timing.txt"
+#define PYR_TIMING_FILE			"pyr_timing.txt"
 
 // Transform Return Codes
 #define EXIT_SUCCESS				0
@@ -155,7 +157,6 @@ void clear_outputs(void)
 }
 		   
 // compare ppm pixel by pixel and create diff image
-// Only works for medium image sized pgm images
 int compare_ppm(const char * img1_filename, const char * img2_filename, const char *diff_filename)
 {
 	unsigned char * img1, * img2, * diff;
@@ -163,7 +164,6 @@ int compare_ppm(const char * img1_filename, const char * img2_filename, const ch
 	int tempInt;
 	unsigned int img1Height, img1Width, img1Chan, img2Height, img2Width, img2Chan;;
 	int rv = 1;
-	
 	// Get the image properties
 	rv = parse_ppm_header(img1_filename, &img1Width, &img1Height, &img1Chan);
 	if(!rv) 
@@ -183,16 +183,18 @@ int compare_ppm(const char * img1_filename, const char * img2_filename, const ch
 	}
 	
 	// make sure the images are the same dimensions for comparison
-	if(img1Height != img2Width || img1Width != img2Width || img1Chan != img2Chan)
+	if(img1Height != img2Height || img1Width != img2Width || img1Chan != img2Chan)
 	{
+#ifdef DEBUG
+		printf("compared images different size 1:%dx%dx%d 2:%dx%dx%d\n",img1Height,img1Width,img1Chan,img2Height,img2Width,img2Chan);
+#endif
 		return -3;
 	}
 	
-	// allocate memoory for the images
+	// allocate memory for the images
 	img1 = (unsigned char *)malloc(img1Width * img1Height * img1Chan);
 	img2 = (unsigned char *)malloc(img1Width * img1Height * img1Chan);
 	diff = (unsigned char *)malloc(img1Width * img1Height * img1Chan);
-	
 	// Read input files
 	readppm(img1, &tempInt, temp, &tempInt, &img1Height, &img1Width, &img1Chan,
              (char *)img1_filename);
@@ -203,7 +205,7 @@ int compare_ppm(const char * img1_filename, const char * img2_filename, const ch
 	// Do the comparison
 	for(unsigned i = 0; i < (img1Width * img1Height * img1Chan); i++)
 	{
-		if(img1[i] != img2[i])
+		if(img1[i] - img2[i] > DIFF_THRESHOLD || img1[i] - img2[i] < (-1)*DIFF_THRESHOLD)
 		{
 			diff[i] = 255;
 			rv = 0;
@@ -267,6 +269,8 @@ int main()
 	char copy_file[64], tempStr[64];
 	char fail_string[NUM_TESTS][128];
 	bool test_passed[NUM_TESTS];
+	
+	printf("##### Begin Benchmark Transform Regression Testing! #####\n");
 	
 	// Save off input image original
 	sprintf(copy_file, "%s", INPUT_IMG_FOLDER MED_INPUT_IMG);
@@ -452,7 +456,7 @@ int main()
 	else
 	{
 		printf("  Sobel Failed!\n");
-		test_passed[LARGE_IMG] = false;
+		temp_bool = false;
 		sprintf(fail_string[LARGE_IMG], "Sobel returned code %d. ", temp_int);
 	}
 	temp_int = system(PYR_CMD" -img="INPUT_IMG_FOLDER TOO_LARGE_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
@@ -464,21 +468,22 @@ int main()
 	else
 	{
 		printf("  Pyramidal Failed!\n");
-		test_passed[LARGE_IMG] = false;
+		temp_bool &= false;
 		sprintf(&fail_string[LARGE_IMG][strnlen(fail_string[LARGE_IMG],23)], "Pyramidal returned code %d. ", temp_int);
 	}
 	temp_int = system(HOUGH_CMD" -img="INPUT_IMG_FOLDER TOO_LARGE_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
 	if(WEXITSTATUS(temp_int) == EXIT_IMG_SZ)
 	{
-		printf("  Hough Passed!");
+		printf("  Hough Passed!\n");
 		temp_bool &= true;
 	}
 	else
 	{
-		printf("  Hough Failed!");
-		test_passed[LARGE_IMG] = false;
+		printf("  Hough Failed!\n");
+		temp_bool &= false;
 		sprintf(&fail_string[LARGE_IMG][strnlen(fail_string[LARGE_IMG],50)], "Hough returned code %d. ", temp_int);
 	}
+	test_passed[LARGE_IMG] = temp_bool;
 	
 	// Check when input is an image that's too small
 	printf("Small Image Check..\n");
@@ -488,12 +493,12 @@ int main()
 	{
 		printf("  Sobel Passed!\n");
 		fail_string[SMALL_IMG][0] = 0; // Explicity set fail string to empty
-		temp_bool &= true;
+		temp_bool = true;
 	}
 	else
 	{
 		printf("  Sobel Failed!\n");
-		test_passed[SMALL_IMG] = false;
+		temp_bool = false;
 		sprintf(fail_string[SMALL_IMG], "Sobel returned code %d. ", temp_int);
 	}
 	temp_int = system(PYR_CMD" -img="INPUT_IMG_FOLDER TOO_SMALL_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
@@ -505,7 +510,7 @@ int main()
 	else
 	{
 		printf("  Pyramidal Failed!\n");
-		test_passed[SMALL_IMG] = false;
+		temp_bool &= false;
 		sprintf(&fail_string[SMALL_IMG][strnlen(fail_string[SMALL_IMG],25)], "Pyramidal returned code %d. ", temp_int);
 	}
 	temp_int = system(HOUGH_CMD" -img="INPUT_IMG_FOLDER TOO_SMALL_IMG NO_WAIT USE_CUDA OUTPUT_TO_FILE);
@@ -517,14 +522,17 @@ int main()
 	else
 	{
 		printf("  Hough Failed!");
-		test_passed[SMALL_IMG] = false;
+		temp_bool &= false;
 		sprintf(&fail_string[SMALL_IMG][strnlen(fail_string[SMALL_IMG],54)], "Hough returned code %d. ", temp_int);
 	}
-	if(temp_bool)
+	test_passed[SMALL_IMG] = temp_bool;
+
+	if(test_passed[SMALL_IMG] && test_passed[LARGE_IMG])
 		printf("\t\tR009 PASSED\n");
 	else
 		printf("\t\tR009 FAILED\n");
 	
+	// Check to make sure the original image didn't change
 	printf("Original image check..\n");
 	if((temp_int = compare_ppm(INPUT_IMG_FOLDER MED_INPUT_IMG, copy_file, NULL) ) > 0)
 	{
@@ -560,7 +568,7 @@ int main()
 		}
 		else
 		{
-			printf("  %s failed because \"%s\".\n",test_t_str[i],fail_string[i]);
+			printf("  %s failed because:\n      \"%s\".\n",test_t_str[i],fail_string[i]);
 			temp_bool = true;
 		}
 	}
@@ -568,5 +576,7 @@ int main()
 		printf("Some tests failed. Full regression test FAILED.\n");
 	else
 		printf("All tests passed. Full regression test PASSED.\n");
+	
+	printf("##### End Benchmark Transform Regression Testing! #####\n");
 }
 	
