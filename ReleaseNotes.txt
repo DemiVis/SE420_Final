@@ -1,0 +1,156 @@
+TRANSFORM BENCHMARK REGRESSION TEST RELEASE NOTES
+
+ABOUT ---------------------------------------------------------------------------------------------
+
+This software package was created by:
+	Matthew Demi Vis, Embry-Riddle Aeronautical University (MatthewVis@gmail.com)
+using software originally from:
+	https://github.com/siewertserau/fusion_coproc_benchmarks
+from the SPIE Sensor and Technologies paper: 
+	S. Siewert, V. Angoth, R. Krishnamurthy, K. Mani, K. Mock, S. B. Singh, S. Srivistava, 
+	C. Wagner, R. Claus, M. Demi Vis, “Software Defined Multi-Spectral Imaging for Arctic 
+	Sensor Networks”, SPIE Algorithms and Technologies for Multipectral, Hyperspectral, and 
+	Ultraspectral Imagery XXII, Baltimore, Maryland, April 2016. 
+This software package is in direct follow-up to the original code and in support of the
+Quality Assurance goals of the research group that authored the aforementioned paper. 
+
+This software is intended to be an automatic regression test suite that can be run quickly
+and easily by anyone making modifications to the benchmarks.
+
+The latest version of this software package can be found at:
+	https://github.com/demivis/SE420_final
+	
+This software package is written using a combination of C, C++, CUDA C Extensions and MATLAB code.
+	C, C++ and CUDA Extensions Code is used for the transforms themselves
+	C is used for the test driver itself
+	MATLAB is used to create a "Truth" point for reference
+	
+This software package was developed and tested using a system with the following hardware configuration:
+	Intel® Core™ i7-4700MQ CPU @ 2.40GHz × 8 
+	nVidia GK208M [GeForce GT 740M/PCIe/SSE2]
+	
+This software package was developed and tested using a system with the following software configuration:
+	Ubuntu 16.04 LTS (64-Bit)
+	GCC version 5.4.0 201606090
+	NVCC version 8.0.61
+	lcov version 1.12
+	MATLAB
+	
+REQUIREMENTS FOR USE ------------------------------------------------------------------------------
+	
+Software:
+	Ubuntu version 14.04LTS or newer
+	GCC version 5.4.0 or newer
+	NVCC version 8.0 or newer
+	lcov versions 1.12 or newer (if using code coverage features)
+	MATLAB
+	
+Hardware:
+	CUDA-enabled GPU capable of utilizing NVCC version 8.0 or newer
+	
+REGULAR USE ---------------------------------------------------------------------------------------
+
+The software package can be used with the following steps:
+	1. run make in /CodeUnderTest directory
+	2. run ./test_benchmarks
+	
+Output from the process above is expected to look like this: TODO make sure this still matches with final run stuff
+	.../SE420_Final/CodeUnderTest$ make
+	sudo g++ -c -lpthread options.cpp ppm.cpp -I./
+	### BUILDING HOUGH BENCHMARK ###
+	nvcc hough.cu hough_kernel.cu -o hough options.o ppm.o -O0 -Wno-deprecated-gpu-targets -I/home/ubuntu/NVIDIA_GPU_Computing_SDK//C/common/inc/ -L/usr/local/cuda/ -lcudart -L/home/ubuntu/NVIDIA_GPU_Computing_SDK//C/lib/ -Xcompiler -ftest-coverage -Xcompiler -fprofile-arcs -Xcompiler --coverage
+	### BUILDING PYRAMIDAL BENCHMARK ###
+	nvcc pyramid.cu pyramid_kernel.cu -o pyramid options.o ppm.o -O0 -Wno-deprecated-gpu-targets -I/home/ubuntu/NVIDIA_GPU_Computing_SDK//C/common/inc/ -L/usr/local/cuda/ -lcudart -L/home/ubuntu/NVIDIA_GPU_Computing_SDK//C/lib/ -Xcompiler  -ftest-coverage -Xcompiler -fprofile-arcs  -Xcompiler --coverage
+	### BUILDING SOBEL BENCHMARK ###
+	nvcc sobel.cu sobel_kernel.cu -o sobel options.o ppm.o -O0 -Wno-deprecated-gpu-targets -I/home/ubuntu/NVIDIA_GPU_Computing_SDK//C/common/inc/ -L/usr/local/cuda/ -lcudart -L/home/ubuntu/NVIDIA_GPU_Computing_SDK//C/lib/ -Xcompiler -ftest-coverage -Xcompiler -fprofile-arcs  -Xcompiler --coverage
+	g++ -c testDriver.c -o testDriver.o
+	### BUILDING TEST DRIVER ###
+	g++ testDriver.c ppm.o -o test_benchmarks -O0 -Wall -ftest-coverage -fprofile-arcs --coverage
+	.../SE420_Final/CodeUnderTest$ ./test_benchmarks 
+	##### Begin Benchmark Transform Regression Testing! #####
+	Feature Testing-------------------------------------
+	-----Sobel Transform-----
+	Sobel complete
+	Sobel transform does not match expected output.
+										 R001 FAILED
+	-----Hough Transform-----
+	Hough transform does not match expected output.
+										 R002 FAILED
+	-----Pyramidal Transforms-----
+	Pyramidal Up transform does not match expected output.
+	Pyramidal Down transform does not match expected output.
+										 R003 FAILED
+	Performance Testing---------------------------------
+	Sobel Elapsed Time:     608 us
+						   (505263157 px/s) R006 PASSED
+	Pyramidal Elapsed Time: 1677 us
+						   (183184257 px/s) R007 PASSED
+	Hough Elapsed Time:     114704 us
+						   (2678197 px/s) R008 PASSED
+	Error Handling Testing------------------------------
+	Large Image Check..
+	  Sobel Passed!
+	  Pyramidal Passed!
+	  Hough Passed!
+	Small Image Check..
+	  Sobel Passed!
+	  Pyramidal Passed!
+	  Hough Passed!		R009 PASSED
+	Original image check..
+	 ..Input image has not changed
+										 R015 PASSED
+	TEST COMPLETE---------------------------------------
+
+	REGRESSION TEST REPORT-----------------------------
+	  Sobel Output Test failed because:
+		  "benchmark output does not match expected output".
+	  Hough Output Test failed because:
+		  "comparison images are different sizes".
+	  Pyramidal Up Output Test failed because:
+		  "benchmark output does not match expected output".
+	  Pyramidal Down Output Test failed because:
+		  "benchmark output does not match expected output".
+	  Sobel Performance Test passed.
+	  Pyramidal Performance Test passed.
+	  Hough Performance Test passed.
+	  Large Image Test passed.
+	  Small Image Test passed.
+	  Original Image Test passed.
+	Some tests failed. Full regression test FAILED.
+	##### End Benchmark Transform Regression Testing! #####
+
+If code coverage details are desired the following steps should be 
+followed after the steps above are complete:
+	1. TODO implement this.
+
+KNOWN DEFICIENCIES --------------------------------------------------------------------------------
+
+1. Sobel Output is incorrect
+	the output from the Sobel transform is not a proper sobel output. Instead of drawing lines it
+	shades the image with what could be edges. Should be replaced with other sobel transform.
+	
+2. PGM/PPM files that do not have comments can be problematic
+	Input PGM/PPM files that do not have a comment line cannot be reliably read and as such all
+	PGM/PPM files used should have a comment line contained in their header.
+	
+3. MATLAB "createTruth" script produces pgm's with improper header format
+	PGM's created by MATLAB do not contain any comment and uses spaces instead of newlines 
+	between P5 line and size line and max value line. at this point, any new "expected" output 
+	files must be manually updated to contain a comment and newlines as described above. See
+	expected outputs that came with this software package for an example.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
