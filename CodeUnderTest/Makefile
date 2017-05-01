@@ -11,19 +11,19 @@ options.o:
 
 hough: hough.cu hough_kernel.cu 
 	### BUILDING HOUGH BENCHMARK ###
-	nvcc $@.cu hough_kernel.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS}
+	nvcc $@.cu hough_kernel.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS} -Xcompiler -ftest-coverage -Xcompiler -fprofile-arcs -Xcompiler --coverage
 	
 pyramid: pyramid.cu pyramid_kernel.cu
 	### BUILDING PYRAMIDAL BENCHMARK ###
-	nvcc $@.cu pyramid_kernel.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS}
+	nvcc $@.cu pyramid_kernel.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS} -Xcompiler  -ftest-coverage -Xcompiler -fprofile-arcs  -Xcompiler --coverage
 	
 sobel: sobel.cu sobel_kernel.cu
 	### BUILDING SOBEL BENCHMARK ###
-	nvcc $@.cu sobel_kernel.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS}
+	nvcc $@.cu sobel_kernel.cu -o $@ options.o ppm.o -O0 ${CUDA_FLAGS} -Xcompiler -ftest-coverage -Xcompiler -fprofile-arcs  -Xcompiler --coverage
 
 test_benchmarks: testDriver.o
 	### BUILDING TEST DRIVER ###
-	g++ testDriver.c ppm.o -o $@ -O0 -Wall
+	g++ testDriver.c ppm.o -o $@ -O0 -Wall -ftest-coverage -fprofile-arcs --coverage
 	
 test:
 	### FORCING REBUILD OF TEST DRIVER ###
