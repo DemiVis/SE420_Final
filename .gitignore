@@ -1,14 +1,4 @@
-CreateTruth/SobelOut.*
-CreateTruth/PyrdwnOut.*
-CreateTruth/PyrupOut.*
-CreateTruth/HoughOut.*
-CreateTruth/RhoThetaOut.*
-
 *.o
-
-CodeUnderTest/hough
-CodeUnderTest/sobel_edge
-CodeUnderTest/pyramid
 
 CodeUnderTest/hough_timing.txt
 CodeUnderTest/sobel_timing.txt

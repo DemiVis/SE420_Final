@@ -37,7 +37,7 @@ This software package was developed and tested using a system with the following
 	GCC version 5.4.0 201606090
 	NVCC version 8.0.61
 	lcov version 1.12
-	MATLAB
+	MATLAB R2015b
 	
 REQUIREMENTS FOR USE ------------------------------------------------------------------------------
 	
@@ -46,7 +46,7 @@ Software:
 	GCC version 5.4.0 or newerIn
 	NVCC version 8.0 or newer
 	lcov versions 1.12 or newer (if using code coverage features)
-	MATLAB
+	MATLAB R2015b or newer
 	
 Hardware:
 	CUDA-enabled GPU capable of utilizing NVCC version 8.0 or newer
