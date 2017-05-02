@@ -1,0 +1,4164 @@
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1347.811780 Hz
+Dumping sobel_out.pgm
+**741**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 11.868095 Hz
+Dumping hough.pgm
+**84259**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 617.797888 Hz
+Dumping pyrdown.pgm
+Dumping pyrup.pgm
+**1618**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1361.249585 Hz
+Dumping sobel_out.pgm
+**734**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 671.365350 Hz
+Dumping pyrdown.pgm
+Dumping pyrup.pgm
+**1489**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 12.269828 Hz
+Dumping hough.pgm
+**81500**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_xl.pgm
+
+Width:2560  Height:1920
+[done]
+Program will now transform image once
+     Freq: 135.252939 Hz
+Dumping sobel_out.pgm
+**7393**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_xl.pgm
+
+Width:2560  Height:1920
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 47.525120 Hz
+Dumping pyrdown.pgm
+Dumping pyrup.pgm
+**21041**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_xl.pgm
+
+Width:2560  Height:1920
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 1.419168 Hz
+Dumping hough.pgm
+**704638**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1559.192996 Hz
+Dumping sobel_out.pgm
+**641**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 11.929483 Hz
+Dumping hough.pgm
+**83825**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 678.033438 Hz
+Dumping pyrdown.pgm
+Dumping pyrup.pgm
+**1474**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1694.662805 Hz
+Dumping sobel_out.pgm
+**590**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 669.609286 Hz
+Dumping pyrdown.pgm
+Dumping pyrup.pgm
+**1493**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 12.195340 Hz
+Dumping hough.pgm
+**81998**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_xl.pgm
+
+Width:2560  Height:1920
+[done]
+Program will now transform image once
+     Freq: 94.421392 Hz
+Dumping sobel_out.pgm
+**10590**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_xl.pgm
+
+Width:2560  Height:1920
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 46.432539 Hz
+Dumping pyrdown.pgm
+Dumping pyrup.pgm
+**21536**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_xl.pgm
+
+Width:2560  Height:1920
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 1.427538 Hz
+Dumping hough.pgm
+**700506**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1154.127923 Hz
+Dumping sobel_out.pgm
+**866**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 11.208836 Hz
+Dumping hough.pgm
+**89215**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 637.113081 Hz
+Dumping pyrdown.pgm
+Dumping pyrup.pgm
+**1569**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 497.208060 Hz
+Dumping sobel_out.pgm
+**2011**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 642.711439 Hz
+Dumping pyrdown.pgm
+Dumping pyrup.pgm
+**1555**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 9.397491 Hz
+Dumping hough.pgm
+**106411**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1682.135524 Hz
+Dumping sobel_out.pgm
+**594**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 12.034776 Hz
+Dumping hough.pgm
+**83092**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 690.375864 Hz
+Dumping pyrdown.pgm
+Dumping pyrup.pgm
+**1448**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1691.164327 Hz
+Dumping sobel_out.pgm
+**591**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 689.678397 Hz
+Dumping pyrdown.pgm
+Dumping pyrup.pgm
+**1449**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 9.506149 Hz
+Dumping hough.pgm
+**105195**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1342.070773 Hz
+Dumping sobel_out.pgm
+**745**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1658.299595 Hz
+Dumping sobel_out.pgm
+**603**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...Loaded ../Test_images/mount_m.pgm headerOpened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1337.687786 Hz
+Dumping sobel_out.pgm
+**747**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgmOpened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1347.811780 Hz
+Dumping sobel_out.pgm
+**741**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgmOpened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1313.662604 Hz
+Dumping sobel_out.pgm
+**761**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+There is no device.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+There is no device.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+There is no device.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+There is no device.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+There is no device.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+There is no device.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+There is no device.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+There is no device.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+There is no device.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+There is no device.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+There is no device.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+There is no device.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+There is no device.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgmOpened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 908.606921 Hz
+Dumping sobel_out.pgm
+**1100**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgmOpened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1666.395443 Hz
+Dumping sobel_out.pgm
+**600**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgmOpened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1633.173844 Hz
+Dumping sobel_out.pgm
+**612**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgmOpened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1345.597898 Hz
+Dumping sobel_out.pgm
+**743**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgmOpened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1342.070773 Hz
+Dumping sobel_out.pgm
+**745**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgmOpened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1336.378467 Hz
+Dumping sobel_out.pgm
+**748**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1355.393779 Hz
+Dumping sobel_out.pgm
+**737**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 777.967711 Hz
+Dumping sobel_out.pgm
+**1285**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 12.074012 Hz
+Dumping hough.pgm
+**82822**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 672.357190 Hz
+Dumping pyrdown.pgm
+Dumping pyrup.pgm
+**1487**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1675.941080 Hz
+Dumping sobel_out.pgm
+**596**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 675.907591 Hz
+Dumping pyrdown.pgm
+Dumping pyrup.pgm
+**1479**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.971468 Hz
+Dumping hough.pgm
+**91145**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_xxl.pgm
+Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_xxl.pgm
+Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_xxl.pgm
+Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_xs.pgm
+Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_xs.pgm
+Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_xs.pgm
+Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1364.423718 Hz
+Dumping sobel_out.pgm
+**732**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.711437 Hz
+Dumping hough.pgm
+**93358**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 638.802246 Hz
+Dumping pyrdown.pgm
+Dumping pyrup.pgm
+**1565**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1211.117682 Hz
+Dumping sobel_out.pgm
+**825**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 632.684584 Hz
+Dumping pyrdown.pgm
+Dumping pyrup.pgm
+**1580**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 11.204237 Hz
+Dumping hough.pgm
+**89251**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_xxl.pgm
+Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_xxl.pgm
+Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_xxl.pgm
+Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_xs.pgm
+Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_xs.pgm
+Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_xs.pgm
+Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1337.251061 Hz
+Dumping sobel_out.pgm
+**747**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.059433 Hz
+Dumping hough.pgm
+**99409**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...opening ../Test_images/mount_m.pgm
+Opened ../Test_images/mount_m.pgm
+
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 674.794069 Hz
+Dumping pyrdown.pgm
+Dumping pyrup.pgm
+**1481**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1639.711769 Hz
+**609**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.491320 Hz
+**95316**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 674.682919 Hz
+**1482**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1306.539075 Hz
+**765**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 8.989119 Hz
+**111245**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 652.644997 Hz
+**1532**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1222.686567 Hz
+**817**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 9.015096 Hz
+**110925**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 652.541023 Hz
+**1532**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1350.923483 Hz
+**740**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.448526 Hz
+**95707**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 668.625531 Hz
+**1495**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1355.393779 Hz
+**737**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.520881 Hz
+**95049**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 616.774582 Hz
+**1621**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1658.971243 Hz
+**602**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.838330 Hz
+**92265**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 671.805806 Hz
+**1488**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1350.923483 Hz
+**740**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 8.960311 Hz
+**111603**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 619.573438 Hz
+**1614**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1646.302251 Hz
+**607**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 672.136528 Hz
+**1487**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 9.136189 Hz
+**109454**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1663.012586 Hz
+**601**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 9.151089 Hz
+**109276**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 689.910729 Hz
+**1449**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1672.519396 Hz
+**597**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 455.009998 Hz
+**2197**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 9.596978 Hz
+**104199**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1665.040650 Hz
+**600**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.074427 Hz
+**99261**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 672.909479 Hz
+**1486**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1659.643436 Hz
+**602**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 673.795032 Hz
+**1484**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.629877 Hz
+**94074**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1662.337662 Hz
+**601**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.436919 Hz
+**95813**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 610.614192 Hz
+**1637**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1673.202614 Hz
+**597**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 688.172043 Hz
+**1453**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 9.136922 Hz
+**109446**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1724.631579 Hz
+**579**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 9.968168 Hz
+**100319**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 639.500390 Hz
+**1563**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1728.270042 Hz
+**578**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 654.836131 Hz
+**1527**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 11.718091 Hz
+**85338**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1644.319550 Hz
+**608**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 12.034635 Hz
+**83093**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 618.824596 Hz
+**1615**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1634.477255 Hz
+**611**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 676.019145 Hz
+**1479**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 12.259802 Hz
+**81567**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1675.255624 Hz
+**596**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 12.014760 Hz
+**83230**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 612.806703 Hz
+**1631**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1673.886391 Hz
+**597**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 673.241289 Hz
+**1485**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 12.181558 Hz
+**82091**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1626.687847 Hz
+**614**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 11.995724 Hz
+**83363**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 597.084548 Hz
+**1674**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1611.963794 Hz
+**620**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 668.516403 Hz
+**1495**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 12.311873 Hz
+**81222**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1291.706086 Hz
+**774**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 11.888211 Hz
+**84116**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 621.170761 Hz
+**1609**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1660.316173 Hz
+**602**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 657.886283 Hz
+**1520**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 12.126954 Hz
+**82460**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1671.154631 Hz
+**598**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 8.573235 Hz
+**116642**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 680.624792 Hz
+**1469**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1651.612903 Hz
+**605**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 269.208018 Hz
+**3714**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 8.344300 Hz
+**119842**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1657.628490 Hz
+**603**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 8.479436 Hz
+**117932**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 656.410256 Hz
+**1523**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1642.341620 Hz
+**608**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 596.215429 Hz
+**1677**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 8.718084 Hz
+**114704**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 876.337184 Hz
+**1141**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.730603 Hz
+**93191**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 592.164233 Hz
+**1688**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1652.279145 Hz
+**605**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 676.130736 Hz
+**1479**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.049068 Hz
+**99511**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1368.069472 Hz
+**730**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 11.942979 Hz
+**83731**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 620.700106 Hz
+**1611**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1350.923483 Hz
+**740**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 676.689245 Hz
+**1477**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 11.825027 Hz
+**84566**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1602.503912 Hz
+**624**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 8.602693 Hz
+**116242**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 711.481674 Hz
+**1405**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1713.807531 Hz
+**583**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 618.824596 Hz
+**1615**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.236852 Hz
+**97686**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1635.129741 Hz
+**611**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 12.489176 Hz
+**80069**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 714.834206 Hz
+**1398**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1734.858111 Hz
+**576**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 718.092567 Hz
+**1392**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 11.542320 Hz
+**86637**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1663.012586 Hz
+**601**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 11.196763 Hz
+**89311**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 619.386058 Hz
+**1614**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1663.012586 Hz
+**601**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 673.020046 Hz
+**1485**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 9.982063 Hz
+**100179**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 901.408451 Hz
+**1109**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 11.999555 Hz
+**83336**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 612.898399 Hz
+**1631**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1683.518290 Hz
+**593**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 605.827540 Hz
+**1650**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 9.148922 Hz
+**109302**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1600.625244 Hz
+**624**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.511512 Hz
+**95133**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 674.905256 Hz
+**1481**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1635.782748 Hz
+**611**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 678.033438 Hz
+**1474**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.750148 Hz
+**93021**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1648.289738 Hz
+**606**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.472811 Hz
+**95485**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 619.292410 Hz
+**1614**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+     Freq: 1667.073667 Hz
+**599**
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 357.385917 Hz
+**2798**
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_m.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+main_param error: Operation not permitted
+CUDA initialized.
+Reading input image...
+Width:640  Height:480
+[done]
+Program will now transform image once
+Filtering started...
+     Freq: 10.592136 Hz
+**94409**
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xxl.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN SOBEL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN PRYAMIDAL TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
+
+BEGIN HOUGH TRANSFORM BENCHMARK
+Img set to ../Test_images/mount_xs.pgm
+Single shot mode
+Program will use CUDA for transform.
+Program will not wait for acknowledgement
+CUDA initialized.
+Reading input image...Input image is too large or too small.
